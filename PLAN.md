@@ -42,7 +42,7 @@ Success means a visitor can, within seconds and on a phone:
 | Coordinates | 17.5132213, 78.4932839 |
 | Place ID | `ChIJL9vxBgCbyzsRPBreR5PAN1E` → review link https://search.google.com/local/writereview?placeid=ChIJL9vxBgCbyzsRPBreR5PAN1E |
 | Website on the listing | None yet — add the site URL once live |
-| Dentists | A review names **Dr Ramya**; full names, qualifications, registration numbers `TODO-CLINIC` |
+| Dentists | **Dr. K. Ramya** (confirmed by owner). Qualifications, State Dental Council registration number, photo, languages `TODO-CLINIC`; other team members `TODO-CLINIC` |
 | Practice software | None. Google Calendar is the diary for now; free/own software later. |
 | Alerts channel | WhatsApp |
 | Payments | Simple payment info for now (see section 5.9) |
@@ -419,8 +419,9 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
 
 1. Confirm the address, phone and hours in section 2; WhatsApp number (same
    as phone?), email, nearby landmarks for directions, holidays.
-2. Dentists: names, qualifications, State Dental Council registration numbers,
-   photos, languages spoken.
+2. Dr. K. Ramya: qualifications (e.g. BDS/MDS + speciality), State Dental
+   Council registration number, photo, languages spoken; any other dentists
+   or staff to show.
 3. Which services the clinic actually offers (trim section 6 table); typical
    appointment length per service.
 4. Show prices? Consultation fee? Payment methods accepted (UPI, cards, cash)?
@@ -443,5 +444,7 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   analytics, editable site data, emergency path and spam protection. Chose
   Google Calendar + Google Sheet + WhatsApp Cloud API behind Vercel functions.
   Read address, phone, hours, rating and Place ID from the public Maps listing
-  (Alwal, Secunderabad) after google.com was allowed. Nothing built — waiting
+  (Alwal, Secunderabad) after google.com was allowed. Dentist: Dr. K. Ramya.
+  Maps photos (10 on the listing) not downloaded yet: image host
+  `lh3.googleusercontent.com` blocked, and uploader/ownership to be confirmed. Nothing built — waiting
   for "go".
