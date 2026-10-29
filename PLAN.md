@@ -31,10 +31,10 @@ Success means a visitor can, within seconds and on a phone:
 |---|---|
 | Name | Tooth Nest Dental Clinic |
 | Address | Manjira Nagar Colony, Alwal, Secunderabad, Telangana 500010, India (Plus code GF7V+78) |
-| Phone | +91 97047 37577 (`tel:+919704737577`) |
+| Phone | +91 97047 37577 (`tel:+919704737577`) — on Google and the signboard · second number on the signboard: +91 70130 01802 (`tel:+917013001802`) |
 | WhatsApp | `TODO-CLINIC` — confirm whether it is the same number |
 | Email | `TODO-CLINIC` |
-| Opening hours | Mon–Sat 10:00–14:00 and 17:00–20:30 · Sun 10:00–13:00 (time zone Asia/Kolkata) |
+| Opening hours | Mon–Sat 10:00–14:00 and 17:00–20:30 · Sun 10:00–13:00 (time zone Asia/Kolkata) per Google. **The signboard says evenings 5–9 PM** — owner to confirm which is right and make Google, the signboard and the site match (NAP consistency matters for local SEO). |
 | Google category | Dental clinic |
 | Google rating | 4.9 ★ from 19 reviews (2026-10-29) |
 | Google Maps listing | https://www.google.com/maps/place/Tooth+Nest+Dental+Clinic/@17.5132213,78.4926402,19z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b0006f1db2f:0x5137c09347de1a3c!8m2!3d17.5132213!4d78.4932839!16s%2Fg%2F11lf2hkjpm |
@@ -42,8 +42,11 @@ Success means a visitor can, within seconds and on a phone:
 | Coordinates | 17.5132213, 78.4932839 |
 | Place ID | `ChIJL9vxBgCbyzsRPBreR5PAN1E` → review link https://search.google.com/local/writereview?placeid=ChIJL9vxBgCbyzsRPBreR5PAN1E |
 | Website on the listing | None yet — add the site URL once live |
-| Dentists | **Dr. K. Ramya** (confirmed by owner). Qualifications, State Dental Council registration number, photo, languages `TODO-CLINIC`; other team members `TODO-CLINIC` |
+| Dentists | **Dr. K. Ramya, Cosmetic Dental Surgeon** (name confirmed by owner; title from the signboard). Qualifications, State Dental Council registration number, photo, languages `TODO-CLINIC`; other team members `TODO-CLINIC` |
 | Practice software | None. Google Calendar is the diary for now; free/own software later. |
+| Services on the clinic's window poster | Dental implants, Treatment (fillings/root canal), Oral hygiene, Dentures, Cosmetic dentistry, Periodontology (gums), Dental surgery, Orthodontics |
+| House rules seen on photos | "Please leave your footwear outside", "Please wear face mask", "No shake hands, only namaskar" |
+| Photos | `assets/images/clinic/` — see section 7 |
 | Alerts channel | WhatsApp |
 | Payments | Simple payment info for now (see section 5.9) |
 
@@ -294,6 +297,24 @@ privacy/terms, emergency line), sticky mobile bar (Call · WhatsApp · Book).
 - **Logo:** `assets/images/logo.png`, 676×542 RGB PNG **with a white background**.
   Use on white/light surfaces only until the brand kit (5.4) provides SVG /
   transparent versions.
+- **Photos** (owner-uploaded to the Google listing; downloaded 2026-10-29 at
+  1600 px; 4 of the 10 on the listing — the rest could not be fetched
+  automatically):
+
+  | File | Shows | Use / caveat |
+  |---|---|---|
+  | `clinic/treatment-room.jpg` (1600×1200) | Dental chair, LED lamp, monitor, instrument tray | Good for "modern equipment", but the chair is **still in protective plastic wrap** (taken before opening) — replace with a new photo before launch |
+  | `clinic/reception.jpg` (1600×1200) | Reception desk, waiting chairs, plant | Usable for About/Contact; a little bare |
+  | `clinic/storefront.jpg` (1600×1600) | Signboard with logo, Dr. K. Ramya, phone, timings; services poster | Great for Contact ("find us") — motorbikes in front; crop to the signboard + entrance |
+  | `clinic/storefront-opening-day.jpg` (1031×1086) | Storefront decorated with marigold garlands on opening day | Nice for the About story; a person is visible — crop or ask permission |
+
+  Convert to WebP/AVIF at the sizes used during the build. Ask the owner for
+  new photos: treatment room ready for use, Dr. K. Ramya portrait, team,
+  sterilisation area, reception with patients' consent, exterior without bikes.
+- **Signboard style:** the real sign uses navy bold capitals for the name and
+  a red accent for the dentist's name. The website follows the logo greens
+  instead; navy can be an optional dark accent if the owner wants the site to
+  match the sign.
 - **Colours** (sampled from the logo; contrast against white):
 
   | Token | Value | Use | Contrast |
@@ -417,8 +438,9 @@ The clinic must own every account (not a personal or developer account).
 
 Until answered, use placeholders written as `TODO-CLINIC: …`.
 
-1. Confirm the address, phone and hours in section 2; WhatsApp number (same
-   as phone?), email, nearby landmarks for directions, holidays.
+1. Confirm the address and hours in section 2 (evening closing **8:30 PM or
+   9 PM?**); which of the two numbers (97047 37577 / 70130 01802) is for
+   calls and which for WhatsApp; email; nearby landmarks; holidays.
 2. Dr. K. Ramya: qualifications (e.g. BDS/MDS + speciality), State Dental
    Council registration number, photo, languages spoken; any other dentists
    or staff to show.
@@ -428,7 +450,9 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
    Card EMI?
 5. Who receives WhatsApp alerts (numbers), and expected reply time.
 6. Separate WhatsApp number for the API, or coexistence with the current one?
-7. Original logo file (AI/SVG/PDF) available?
+7. Original logo file (AI/SVG/PDF) available? The other 6 photos from the
+   Google listing (or originals from the phone), and new photos listed in
+   section 7.
 8. Languages: English only at launch, Telugu/Hindi later?
 9. Real reviews to show on the site (with the reviewers' permission); who has
    owner access to the Google Business Profile (listing shows an owner account).
@@ -445,6 +469,9 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   Google Calendar + Google Sheet + WhatsApp Cloud API behind Vercel functions.
   Read address, phone, hours, rating and Place ID from the public Maps listing
   (Alwal, Secunderabad) after google.com was allowed. Dentist: Dr. K. Ramya.
-  Maps photos (10 on the listing) not downloaded yet: image host
-  `lh3.googleusercontent.com` blocked, and uploader/ownership to be confirmed. Nothing built — waiting
+  Owner confirmed the Maps photos are theirs; saved 4 of 10 to
+  `assets/images/clinic/` (rest not reachable without a browser login).
+  Photos revealed a second phone number, the "Cosmetic Dental Surgeon" title,
+  the services poster, and an evening-hours mismatch (sign 9 PM vs Google
+  8:30 PM). Nothing built — waiting
   for "go".
