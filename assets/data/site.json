@@ -1,0 +1,32 @@
+{
+  "_readme": "Clinic facts used by the site scripts (open-now status) and, later, the booking functions. When you change hours, phone or address here, also update the footer and contact page text (search the repo for the old value). Values marked TODO-CLINIC need the owner's confirmation.",
+  "name": "Tooth Nest Dental Clinic",
+  "dentist": "Dr. K. Ramya",
+  "dentistTitle": "Cosmetic Dental Surgeon",
+  "phone": { "display": "+91 97047 37577", "tel": "+919704737577" },
+  "phoneAlt": { "display": "+91 70130 01802", "tel": "+917013001802" },
+  "whatsapp": { "number": "919704737577", "_todo": "TODO-CLINIC: confirm which number is on WhatsApp" },
+  "email": null,
+  "address": {
+    "street": "Manjira Nagar Colony, Alwal",
+    "locality": "Secunderabad",
+    "region": "Telangana",
+    "postalCode": "500010",
+    "country": "IN"
+  },
+  "geo": { "lat": 17.5132213, "lng": 78.4932839 },
+  "mapUrl": "https://maps.google.com/maps?cid=5852357979589712444",
+  "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJL9vxBgCbyzsRPBreR5PAN1E",
+  "timeZone": "Asia/Kolkata",
+  "_hoursTodo": "TODO-CLINIC: Google says evenings close 20:30, the signboard says 21:00",
+  "hours": {
+    "mon": [["10:00", "14:00"], ["17:00", "20:30"]],
+    "tue": [["10:00", "14:00"], ["17:00", "20:30"]],
+    "wed": [["10:00", "14:00"], ["17:00", "20:30"]],
+    "thu": [["10:00", "14:00"], ["17:00", "20:30"]],
+    "fri": [["10:00", "14:00"], ["17:00", "20:30"]],
+    "sat": [["10:00", "14:00"], ["17:00", "20:30"]],
+    "sun": [["10:00", "13:00"]]
+  },
+  "holidays": []
+}

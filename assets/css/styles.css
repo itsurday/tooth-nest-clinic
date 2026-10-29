@@ -1,0 +1,212 @@
+/* Tooth Nest Dental Clinic — shared styles. Tokens and rules: PLAN.md section 7. */
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/figtree-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../fonts/noto-sans-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --brand: #2cb27f;        /* logo green: decoration only (2.7:1 on white) */
+  --brand-strong: #1a7a56; /* buttons, links (5.3:1) */
+  --brand-deep: #176b4c;   /* hover, headings accent (6.5:1) */
+  --brand-tint: #e3f4ec;
+  --nest: #84888b;         /* borders, decorative lines (3.6:1) */
+  --leaf: #8dc63f;
+  --ink: #2e3338;
+  --ink-soft: #4a4f54;
+  --line: #dfe5e2;
+  --surface: #ffffff;
+  --surface-alt: #f3faf6;
+  --danger: #b42318;
+  --focus: #176b4c;
+
+  --font-head: "Figtree", system-ui, sans-serif;
+  --font-body: "Noto Sans", system-ui, sans-serif;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgb(46 51 56 / 0.06), 0 6px 20px rgb(46 51 56 / 0.06);
+  --container: 72rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-h: 4.5rem;
+  --bar-h: 4rem;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 1rem); }
+body {
+  margin: 0;
+  font: 400 1.0625rem/1.6 var(--font-body);
+  color: var(--ink);
+  background: var(--surface);
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; color: var(--ink); margin: 0 0 0.5em; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 1.4rem + 3vw, 3.25rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.25rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+a { color: var(--brand-strong); text-underline-offset: 0.15em; }
+a:hover { color: var(--brand-deep); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.icon { width: 1.25em; height: 1.25em; flex: none; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--brand-deep); color: #fff; padding: 0.75rem 1rem; border-radius: var(--radius-sm);
+}
+.skip-link:focus { top: 1rem; color: #fff; }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.container { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
+.section { padding-block: clamp(3rem, 6vw, 5.5rem); }
+.section-alt { background: var(--surface-alt); }
+.lead { font-size: 1.1875rem; color: var(--ink-soft); max-width: 40rem; }
+.eyebrow {
+  font: 600 0.875rem/1 var(--font-head); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--brand-deep); margin-bottom: 0.75rem;
+}
+
+/* Signature: woven "nest" underline taken from the logo's twigs. */
+.nest-rule { position: relative; padding-bottom: 0.9rem; }
+.nest-rule::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 5.5rem; height: 0.7rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 11' fill='none' stroke-linecap='round'%3E%3Cpath d='M2 3c22 9 58 9 84 0' stroke='%2384888b' stroke-width='2'/%3E%3Cpath d='M6 8c26-6 52-6 78 1' stroke='%2384888b' stroke-width='1.6'/%3E%3Cpath d='M16 2c18 8 40 9 62 3' stroke='%232cb27f' stroke-width='2.2'/%3E%3C/svg%3E") no-repeat left / contain;
+}
+.center .nest-rule::after, .nest-rule.center::after { left: 50%; transform: translateX(-50%); }
+.center { text-align: center; }
+.center .lead { margin-inline: auto; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 2.875rem; padding: 0.65rem 1.25rem; border-radius: 999px;
+  font: 600 1rem/1.2 var(--font-head); text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--brand-strong); color: #fff; }
+.btn-primary:hover { background: var(--brand-deep); color: #fff; }
+.btn-outline { border-color: var(--brand-strong); color: var(--brand-strong); background: #fff; }
+.btn-outline:hover { background: var(--brand-tint); color: var(--brand-deep); }
+.btn-whatsapp { background: #fff; color: var(--ink); border-color: var(--line); }
+.btn-whatsapp .icon { color: #128c4b; }
+.btn-whatsapp:hover { border-color: var(--brand); color: var(--ink); }
+.btn-lg { min-height: 3.25rem; padding-inline: 1.5rem; font-size: 1.0625rem; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50; background: rgb(255 255 255 / 0.96);
+  border-bottom: 1px solid var(--line); backdrop-filter: saturate(1.4) blur(8px);
+}
+.header-inner { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink); margin-right: auto; }
+.brand img { width: 3.25rem; height: auto; }
+.brand-name { font: 700 1.125rem/1.05 var(--font-head); }
+.brand-name small { display: block; font: 500 0.8rem/1.3 var(--font-body); color: var(--ink-soft); }
+
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
+.site-nav a {
+  display: block; padding: 0.6rem 0.8rem; border-radius: var(--radius-sm);
+  color: var(--ink); text-decoration: none; font: 500 1rem/1.2 var(--font-head);
+}
+.site-nav a:hover { background: var(--surface-alt); color: var(--brand-deep); }
+.site-nav a[aria-current="page"] { color: var(--brand-deep); box-shadow: inset 0 -3px 0 var(--brand); }
+.header-call { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none; color: var(--ink); white-space: nowrap; }
+.header-call .icon { color: var(--brand-strong); }
+.nav-toggle { display: none; }
+
+@media (max-width: 60rem) {
+  .header-call { display: none; }
+}
+@media (max-width: 52rem) {
+  .header-book { display: none; }
+  .js .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.875rem; height: 2.875rem; border-radius: var(--radius-sm);
+    border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer;
+  }
+  .site-nav { flex-basis: 100%; }
+  .header-inner { flex-wrap: wrap; }
+  .site-nav ul { flex-direction: column; padding-bottom: 0.75rem; }
+  .site-nav a { padding: 0.85rem 0.5rem; font-size: 1.0625rem; }
+  .js .site-nav[data-open="false"] { display: none; }
+}
+
+/* ---------- Open-now chip ---------- */
+.status-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.8rem;
+  border-radius: 999px; background: var(--surface-alt); border: 1px solid var(--line);
+  font: 500 0.9375rem/1.3 var(--font-body); color: var(--ink);
+}
+.status-chip::before { content: ""; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--nest); }
+.status-chip[data-open="true"]::before { background: var(--brand); box-shadow: 0 0 0 3px rgb(44 178 127 / 0.25); }
+.status-chip:empty { display: none; }
+
+/* ---------- Cards ---------- */
+.grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.5rem; box-shadow: var(--shadow);
+}
+.card h3 { margin-bottom: 0.4rem; }
+.card p:last-child { margin-bottom: 0; }
+.card-icon {
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 14px;
+  background: var(--brand-tint); color: var(--brand-deep); margin-bottom: 1rem;
+}
+.card-icon .icon { width: 1.5rem; height: 1.5rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #1f2a2e; color: #dfe7e3; padding-block: 3rem 2rem; }
+.site-footer a { color: #fff; }
+.site-footer h2 { color: #fff; font-size: 1.0625rem; margin-bottom: 0.75rem; }
+.footer-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+.footer-brand img { width: 6rem; margin-bottom: 0.75rem; }
+.footer-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.footer-list li { display: flex; gap: 0.5rem; align-items: flex-start; }
+.footer-list .icon { margin-top: 0.2em; color: var(--brand); }
+.hours-table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; }
+.hours-table th { text-align: left; font-weight: 500; padding: 0.2rem 0.75rem 0.2rem 0; vertical-align: top; white-space: nowrap; }
+.hours-table td { padding: 0.2rem 0; }
+.footer-bottom {
+  margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgb(255 255 255 / 0.12);
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; font-size: 0.875rem; color: #b9c4bf;
+}
+.footer-bottom a { color: #dfe7e3; }
+
+/* ---------- Mobile action bar ---------- */
+.action-bar { display: none; }
+@media (max-width: 52rem) {
+  body { padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom)); }
+  .action-bar {
+    position: fixed; inset: auto 0 0; z-index: 60; display: grid; grid-template-columns: repeat(3, 1fr);
+    background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -4px 16px rgb(46 51 56 / 0.08);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .action-bar a {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2rem;
+    min-height: var(--bar-h); text-decoration: none; color: var(--ink); font: 600 0.875rem/1 var(--font-head);
+  }
+  .action-bar a .icon { width: 1.4rem; height: 1.4rem; color: var(--brand-strong); }
+  .action-bar a.is-whatsapp .icon { color: #128c4b; }
+  .action-bar a.is-book { background: var(--brand-strong); color: #fff; }
+  .action-bar a.is-book .icon { color: #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}

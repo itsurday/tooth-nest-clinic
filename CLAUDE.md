@@ -11,9 +11,9 @@ Continue from the first unchecked item in its Progress section, and update
 `PLAN.md` (checkboxes + session log) in the same commit as the work.
 
 Rules:
-- Do not build site pages until the owner says "go" (see top of `PLAN.md`).
+- Build only phases the owner has said "go" for (see top of `PLAN.md`); ask before starting the next phase.
 - Work in Ponytail mode: smallest complete change, no framework or dependency
   unless `PLAN.md` says so.
 - Never put patient data in URLs, browser storage, analytics or logs.
 - Unknown clinic details are placeholders marked `TODO-CLINIC: …`.
-- Run `/ponytail-review` and the checks in `PLAN.md` section 6 before pushing.
+- Run `/ponytail-review` and the checks in `PLAN.md` section 8 before pushing.

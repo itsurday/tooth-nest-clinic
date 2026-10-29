@@ -5,9 +5,8 @@ first, then continue from the first unchecked item in **Progress** (section 10).
 Update the checkboxes, the **Session log** and the **Open questions** as work
 happens, and commit this file with the work it describes.
 
-> **Rule from the owner:** do not build anything until the owner says "go".
-> Planning, research and small housekeeping are fine; writing site pages or
-> backend code is not.
+> **Rule from the owner:** build only after the owner says "go". The owner said
+> "go" for **Phase 1** on 2026-10-29. Ask again before starting each later phase.
 
 ---
 
@@ -299,9 +298,12 @@ privacy/terms, emergency line), sticky mobile bar (Call · WhatsApp · Book).
 
 - **Feel:** calm, clean, warm, reassuring; generous white space; rounded shapes
   echoing the tooth and nest; inline SVG icons (no emoji); no generic gradients.
-- **Logo:** `assets/images/logo.png`, 676×542 RGB PNG **with a white background**.
-  Use on white/light surfaces only until the brand kit (5.4) provides SVG /
-  transparent versions.
+- **Logo:** use `assets/brand/logo.svg` (full colour, transparent),
+  `logo-white.svg` (dark backgrounds) and `logo-mark.svg` (tooth only, small
+  sizes). Traced from the owner's PNG, now kept as
+  `assets/brand/source/logo-original.png` (white box, sticker outline — do not
+  use on the site). Raster versions: re-run `node tools/render-brand.cjs`.
+  Brand kit page: `/brand.html` (`noindex`).
 - **Photos** (owner-uploaded to the Google listing; downloaded 2026-10-29 at
   1600 px; 4 of the 10 on the listing — the rest could not be fetched
   automatically):
@@ -334,9 +336,11 @@ privacy/terms, emergency line), sticky mobile bar (Call · WhatsApp · Book).
   | `--surface` | `#FFFFFF` / `#F3FAF6` | Page / alternate sections | — |
 
   Dark text `#1F2A2E` on `--brand` = 5.45:1 if a green surface with text is needed.
-- **Type:** one friendly, legible sans-serif with good Telugu/Devanagari
-  companions for later (candidates: "Noto Sans" family, "Nunito Sans", "DM Sans";
-  decide with `ui-ux-pro-max`). Body 17–18px, line-height 1.6, ~70ch lines.
+- **Type (decided):** headings **Figtree** 600/700, body **Noto Sans** 400/600
+  (ui-ux-pro-max "Medical Clean" pairing; Noto has Telugu/Devanagari siblings).
+  Self-hosted variable woff2, Latin subset only (`assets/fonts/`, OFL licences
+  alongside) — no Google Fonts request. ₹ falls back to the system font (the
+  latin-ext file was 168 KB just for that). Body 17px, line-height 1.6.
 - **Style:** flat/soft cards, subtle shadow, 16px radius. **No neumorphism**
   (low contrast).
 - **Motion:** minimal; respect `prefers-reduced-motion`.
@@ -398,11 +402,14 @@ The clinic must own every account (not a personal or developer account).
 - [x] Feature list agreed and planned (India, Google Calendar, WhatsApp)
 
 ### Phase 1 — Brand kit and foundation (waits for "go")
-- [ ] `.vercelignore` (hide `.claude/`, plan files, tests)
-- [ ] Brand kit (5.4): SVG/transparent logo, favicons, OG/profile images, `brand.html`
-- [ ] Design tokens + font in `assets/css/styles.css`
-- [ ] `assets/data/site.json` (hours, holidays, contacts, services — placeholders)
-- [ ] Header, footer, mobile nav, sticky Call · WhatsApp · Book bar (wa.me + tel: live)
+- [x] `.vercelignore` (hides `.claude/`, `CLAUDE.md`, `PLAN.md`, `tests/`, `tools/`)
+- [x] Brand kit (5.4): `assets/brand/` SVG logos (full, white, mark), transparent PNGs, favicons (`/favicon.ico`, `/favicon.svg`, apple-touch, 192/512 maskable), OG image, GBP cover, square profile picture; `brand.html`
+- [x] Design tokens + fonts in `assets/css/styles.css`
+- [x] `assets/data/site.json` (contacts, address, geo, hours, holidays; services added in Phase 4 when slot lengths are known)
+- [x] Header, footer, mobile nav, sticky Call · WhatsApp · Book bar — canonical markup lives in `brand.html`; copy it exactly into every page
+- [x] Icon sprite `assets/icons.svg` (Lucide ISC + Simple Icons CC0 WhatsApp), `<use href="/assets/icons.svg#i-NAME">`
+- [x] Open-now chip (`assets/js/hours.js`, IST-aware) with tests `node --test tests/*.test.mjs` (7 passing)
+- [x] QA of `brand.html` at 375/768/1280: no overflow, no console errors, axe-core WCAG 2.2 AA clean
 
 ### Phase 2 — Content pages
 - [ ] Home · Services · About · Patient info (incl. fees & payment) · Contact
@@ -481,3 +488,11 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   8:30 PM). Saved 5 Google reviews to `assets/data/reviews.json` at the owner's
   request. Nothing built — waiting
   for "go".
+- **2026-10-29 (session 1, later)** — Owner said "go" for Phase 1. Traced the
+  logo to SVG (vtracer, per-colour layers, sticker outline removed) and made
+  the brand kit; chose Figtree + Noto Sans (self-hosted); wrote `styles.css`,
+  `main.js`, `hours.js` (+ tests), `site.json`, icon sprite, manifest,
+  `.vercelignore`, and `brand.html` with the shared header/footer/action bar.
+  Conventions: root-absolute URLs (`/assets/...`), `.html` links (no
+  cleanUrls config), `<html class="js">` set inline so the mobile nav works
+  without JS. Next: Phase 2 pages — ask the owner before starting.
