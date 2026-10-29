@@ -14,7 +14,7 @@ happens, and commit this file with the work it describes.
 ## 1. Goal
 
 A fast, trustworthy, accessible website for **Tooth Nest Dental Clinic**
-(Hyderabad, India) that turns visitors into booked appointments and makes the
+(Alwal, Secunderabad — Hyderabad, India) that turns visitors into booked appointments and makes the
 clinic easy to find on Google. Audience: local patients and parents looking for
 a dentist, people with a dental emergency, and nervous patients who need
 reassurance before they call.
@@ -30,18 +30,27 @@ Success means a visitor can, within seconds and on a phone:
 | Item | Value |
 |---|---|
 | Name | Tooth Nest Dental Clinic |
-| Country / city | India — Hyderabad, Telangana (north Hyderabad, from map coordinates; exact locality `TODO-CLINIC`) |
+| Address | Manjira Nagar Colony, Alwal, Secunderabad, Telangana 500010, India (Plus code GF7V+78) |
+| Phone | +91 97047 37577 (`tel:+919704737577`) |
+| WhatsApp | `TODO-CLINIC` — confirm whether it is the same number |
+| Email | `TODO-CLINIC` |
+| Opening hours | Mon–Sat 10:00–14:00 and 17:00–20:30 · Sun 10:00–13:00 (time zone Asia/Kolkata) |
+| Google category | Dental clinic |
+| Google rating | 4.9 ★ from 19 reviews (2026-10-29) |
 | Google Maps listing | https://www.google.com/maps/place/Tooth+Nest+Dental+Clinic/@17.5132213,78.4926402,19z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9b0006f1db2f:0x5137c09347de1a3c!8m2!3d17.5132213!4d78.4932839!16s%2Fg%2F11lf2hkjpm |
+| Short map link | https://maps.google.com/maps?cid=5852357979589712444 |
 | Coordinates | 17.5132213, 78.4932839 |
-| Maps CID | 5852357979589712444 (from the link; Place ID for the review link still `TODO-CLINIC`) |
-| Address, phone, WhatsApp, email, hours | `TODO-CLINIC` — owner will provide |
-| Dentists, registration numbers | `TODO-CLINIC` |
+| Place ID | `ChIJL9vxBgCbyzsRPBreR5PAN1E` → review link https://search.google.com/local/writereview?placeid=ChIJL9vxBgCbyzsRPBreR5PAN1E |
+| Website on the listing | None yet — add the site URL once live |
+| Dentists | A review names **Dr Ramya**; full names, qualifications, registration numbers `TODO-CLINIC` |
 | Practice software | None. Google Calendar is the diary for now; free/own software later. |
 | Alerts channel | WhatsApp |
 | Payments | Simple payment info for now (see section 5.9) |
 
-The Google Maps page could not be read from the cloud session (network policy
-blocks google.com), so address/phone/hours were not copied from it.
+Details above were read from the public Google Maps listing on 2026-10-29; the
+owner should confirm them. Reviews on the listing must not be copied onto the
+site without the reviewers' permission (link to Google reviews instead, or ask
+patients directly).
 
 ## 3. Features (owner's list + agreed additions)
 
@@ -181,7 +190,7 @@ Visitor ──► Static site (HTML/CSS/JS on Vercel)
 
 ### 5.5 Local SEO and Google Search Console
 - On-page: unique titles and descriptions with locality ("Dentist in
-  <locality>, Hyderabad"), one `<h1>`, NAP (name, address, phone) identical on
+  Alwal, Secunderabad"), one `<h1>`, NAP (name, address, phone) identical on
   every page and on Google Business Profile.
 - Structured data: `Dentist` JSON-LD (name, address, `geo` 17.5132213 /
   78.4932839, phone, opening hours, `hasMap`, `sameAs` social links,
@@ -330,8 +339,8 @@ privacy/terms, emergency line), sticky mobile bar (Call · WhatsApp · Book).
   holidays, buffers, time zone **Asia/Kolkata**), Indian phone validation, and
   server-side validation of each function.
 - Run against `python3 -m http.server` / `vercel dev` locally and the Vercel
-  preview (`*.vercel.app` is in the session's network allowlist; google.com is
-  not).
+  preview (`*.vercel.app` and `google.com` are in the session's network
+  allowlist).
 
 ## 9. Accounts and setup the owner must do
 
@@ -346,7 +355,7 @@ The clinic must own every account (not a personal or developer account).
       the API, or Meta's "coexistence" option to keep using the same number in
       the WhatsApp Business app (check current availability)
 - [ ] Staff WhatsApp number(s) that receive alerts
-- [ ] Verify / manage the Google Business Profile listing; get its Place ID
+- [ ] Confirm who manages the Google Business Profile (it already has an owner); add the website URL and appointment link once live
 - [ ] Domain name (e.g. `toothnest.in` / `.com`) — needed for Search Console
       domain property and a professional email
 - [ ] Cloudflare account (free) for Turnstile spam protection
@@ -408,8 +417,8 @@ The clinic must own every account (not a personal or developer account).
 
 Until answered, use placeholders written as `TODO-CLINIC: …`.
 
-1. Exact address, locality name, landmarks, phone, WhatsApp number, email,
-   opening hours, weekly off day, holidays.
+1. Confirm the address, phone and hours in section 2; WhatsApp number (same
+   as phone?), email, nearby landmarks for directions, holidays.
 2. Dentists: names, qualifications, State Dental Council registration numbers,
    photos, languages spoken.
 3. Which services the clinic actually offers (trim section 6 table); typical
@@ -420,8 +429,8 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
 6. Separate WhatsApp number for the API, or coexistence with the current one?
 7. Original logo file (AI/SVG/PDF) available?
 8. Languages: English only at launch, Telugu/Hindi later?
-9. Real Google reviews to show (with permission); Google Business Profile
-   access and Place ID.
+9. Real reviews to show on the site (with the reviewers' permission); who has
+   owner access to the Google Business Profile (listing shows an owner account).
 10. Domain name and production host.
 11. Social media accounts (Instagram, Facebook, YouTube).
 
@@ -433,5 +442,6 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   reminders/recall, reviews, click-to-chat, DPDP/DCI compliance, lead log,
   analytics, editable site data, emergency path and spam protection. Chose
   Google Calendar + Google Sheet + WhatsApp Cloud API behind Vercel functions.
-  Clinic is in Hyderabad (from Maps link); other details pending. Nothing built —
-  waiting for "go".
+  Read address, phone, hours, rating and Place ID from the public Maps listing
+  (Alwal, Secunderabad) after google.com was allowed. Nothing built — waiting
+  for "go".
