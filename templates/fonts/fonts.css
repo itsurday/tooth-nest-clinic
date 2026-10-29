@@ -1,0 +1,9 @@
+/* Template preview fonts (Google Fonts, SIL Open Font License), latin subset, self-hosted.
+   Licences: https://openfontlicense.org — Cormorant Garamond, Marcellus, Jost, Instrument Serif. */
+@font-face { font-family: "Cormorant Garamond"; src: url("cormorant-italic-500.woff2") format("woff2"); font-style: italic; font-weight: 500; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("cormorant-normal-500.woff2") format("woff2"); font-style: normal; font-weight: 500 600; font-display: swap; }
+@font-face { font-family: "Marcellus"; src: url("marcellus-normal-400.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("jost-italic-300.woff2") format("woff2"); font-style: italic; font-weight: 300; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("jost-normal-300-600.woff2") format("woff2"); font-style: normal; font-weight: 300 600; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("instrument-italic-400.woff2") format("woff2"); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("instrument-normal-400.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }

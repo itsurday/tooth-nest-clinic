@@ -420,6 +420,14 @@ The clinic must own every account (not a personal or developer account).
 - [x] QA: 10 pages × 375/768/1280 — no overflow, no console/network errors, one `<h1>`, axe WCAG 2.2 AA clean, 38 internal links + anchors resolve
 - Hours text appears in: `partials/footer.html`, `index.html` (CTA), `contact.html`, `book.html`, contact meta description and `assets/data/site.json` — update all together (`grep -rn "8:30 PM"`).
 
+### Design templates (owner request, between Phase 2 and 3) ✅
+- [x] Shortlisted Awwwards "dental clinic" results (owner ran a console script, 186 sites) and reviewed 13 real clinic sites on desktop and mobile; ranked top 10 and top 5 for Tooth Nest
+- [x] Home-page previews in `templates/` (noindex, not linked from the site; compare at `/templates/`):
+  2 "Local & Trusted" (Palamós) · 3 "Calm Sage" (Atelier) · 4 "Bright Family" (Herzel) · 5 "Book-First" (Marylebone structure, no superlatives) · 6 "Bold Smile" (Nova) · 7 "Best of" (pieces of 2–6). Template 1 = the current site.
+- [x] Stock photos from Unsplash only for previews (`templates/img/`, credits in `CREDITS.txt`); real clinic photos must replace them in whichever template is chosen. Preview fonts self-hosted in `templates/fonts/`.
+- [x] QA: no overflow/console errors, axe WCAG 2.2 AA clean at 1440 and 390 for all templates
+- [ ] Owner picks a template → restyle the real site with it (then delete `templates/` or keep as archive)
+
 ### Phase 3 — Lead capture and alerts
 - [ ] Call-back form → `/api/lead` → Sheet row
 - [ ] WhatsApp Cloud API alert to staff (needs section 9 accounts)
@@ -511,3 +519,9 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   running them was blocked by the session's safety check — owner to decide.
   Next: Phase 3 (lead capture + WhatsApp alerts) — needs the owner's accounts
   in section 9; ask before starting.
+- **2026-10-29 (session 1, templates)** — Owner asked for alternative layouts
+  before Phase 3. Awwwards blocks cloud servers, so the owner ran a console
+  script and pasted 186 results; reviewed the clinic sites with Playwright.
+  Built templates 2–7 + `/templates/` comparison page with Unsplash stock
+  photos (search pages block bots; images were picked by known IDs and checked
+  on contact sheets). Waiting for the owner to choose a template.
