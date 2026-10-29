@@ -1,6 +1,8 @@
 # Tooth Nest Dental Clinic website
 
-Static marketing site (plain HTML, CSS, vanilla JS, no build step), deployed on
+Website for a dental clinic in Hyderabad, India: static pages (plain HTML, CSS,
+vanilla JS, no build step) plus a few Vercel serverless functions for booking
+(Google Calendar), lead log (Google Sheets) and WhatsApp alerts. Deployed on
 Vercel: https://tooth-nest-clinic.vercel.app/
 
 **Start every session by reading `PLAN.md`.** It holds the decisions, page
