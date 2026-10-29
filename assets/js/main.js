@@ -31,3 +31,15 @@ if (chips.length) {
     })
     .catch(() => {});
 }
+
+// Click-to-load Google map: nothing is requested from Google until the visitor asks for it.
+document.querySelectorAll('[data-map-src]').forEach(box => {
+  box.querySelector('button')?.addEventListener('click', () => {
+    const frame = document.createElement('iframe');
+    frame.src = box.dataset.mapSrc;
+    frame.title = box.dataset.mapTitle || 'Map';
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'no-referrer-when-downgrade';
+    box.replaceChildren(frame);
+  });
+});

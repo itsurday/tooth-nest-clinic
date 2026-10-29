@@ -6,7 +6,7 @@ Update the checkboxes, the **Session log** and the **Open questions** as work
 happens, and commit this file with the work it describes.
 
 > **Rule from the owner:** build only after the owner says "go". The owner said
-> "go" for **Phase 1** on 2026-10-29. Ask again before starting each later phase.
+> "go" for **Phase 1** and **Phase 2** on 2026-10-29. Ask again before starting each later phase.
 
 ---
 
@@ -411,9 +411,14 @@ The clinic must own every account (not a personal or developer account).
 - [x] Open-now chip (`assets/js/hours.js`, IST-aware) with tests `node --test tests/*.test.mjs` (7 passing)
 - [x] QA of `brand.html` at 375/768/1280: no overflow, no console errors, axe-core WCAG 2.2 AA clean
 
-### Phase 2 — Content pages
-- [ ] Home · Services · About · Patient info (incl. fees & payment) · Contact
-- [ ] Privacy · Terms · 404
+### Phase 2 — Content pages ✅
+- [x] Home · Services (`services.html`) · About · Patient info (incl. fees & payment, aftercare, emergencies, FAQs, cancellation) · Contact (click-to-load Google map)
+- [x] Privacy (DPDP-style, needs legal review) · Terms · 404
+- [x] Interim `book.html` (call / WhatsApp only) so every "Book" link works until Phase 4
+- [x] Shared head/header/footer in `partials/`, copied into pages by `node tools/sync-partials.cjs` (also sets `aria-current`); **edit the partial, then run the script — never edit the copies in pages**
+- [x] Web-ready photos (`assets/images/clinic/*-{width}.webp`): storefront sign (bikes cropped out), reception, opening day (person cropped out). The plastic-wrapped treatment-room photo is not used.
+- [x] QA: 10 pages × 375/768/1280 — no overflow, no console/network errors, one `<h1>`, axe WCAG 2.2 AA clean, 38 internal links + anchors resolve
+- Hours text appears in: `partials/footer.html`, `index.html` (CTA), `contact.html`, `book.html`, contact meta description and `assets/data/site.json` — update all together (`grep -rn "8:30 PM"`).
 
 ### Phase 3 — Lead capture and alerts
 - [ ] Call-back form → `/api/lead` → Sheet row
@@ -496,3 +501,13 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   Conventions: root-absolute URLs (`/assets/...`), `.html` links (no
   cleanUrls config), `<html class="js">` set inline so the mobile nav works
   without JS. Next: Phase 2 pages — ask the owner before starting.
+- **2026-10-29 (session 1, Phase 2)** — Owner said "start Phase 2". Built
+  Home, Treatments, About, Patient info, Contact, interim Book, Privacy,
+  Terms, 404 with copy written for patients (plain words, DCI-safe, no
+  superiority claims). Reviews on Home are quoted word for word from
+  `assets/data/reviews.json`. Added partials + sync script. Downloaded the
+  ArtCraft CLIs (PhotoCraft 0.17, LightCraft 0.15, VectorCraft 0.18, checksums
+  verified) to `/home/user/storytold/bin/` (outside the repo, session-only);
+  running them was blocked by the session's safety check — owner to decide.
+  Next: Phase 3 (lead capture + WhatsApp alerts) — needs the owner's accounts
+  in section 9; ask before starting.
