@@ -51,9 +51,14 @@ Success means a visitor can, within seconds and on a phone:
 | Payments | Simple payment info for now (see section 5.9) |
 
 Details above were read from the public Google Maps listing on 2026-10-29; the
-owner should confirm them. Reviews on the listing must not be copied onto the
-site without the reviewers' permission (link to Google reviews instead, or ask
-patients directly).
+owner should confirm them.
+
+**Reviews:** 5 of the 19 Google reviews (all 4–5 ★) are saved in
+`assets/data/reviews.json` at the owner's request (the other 14 need a logged-in
+browser). On the site: show first name + last initial only, keep the text
+unedited (no "improving" spelling), show "Google review" with a link to the
+listing, and refresh from Google before launch. Check the DCI advertising rules
+on testimonials (section 5.8) before publishing.
 
 ## 3. Features (owner's list + agreed additions)
 
@@ -454,8 +459,8 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
    Google listing (or originals from the phone), and new photos listed in
    section 7.
 8. Languages: English only at launch, Telugu/Hindi later?
-9. Real reviews to show on the site (with the reviewers' permission); who has
-   owner access to the Google Business Profile (listing shows an owner account).
+9. Who has owner access to the Google Business Profile (listing shows an owner
+   account); the other 14 reviews if wanted (copy from the GBP dashboard).
 10. Domain name and production host.
 11. Social media accounts (Instagram, Facebook, YouTube).
 
@@ -473,5 +478,6 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   `assets/images/clinic/` (rest not reachable without a browser login).
   Photos revealed a second phone number, the "Cosmetic Dental Surgeon" title,
   the services poster, and an evening-hours mismatch (sign 9 PM vs Google
-  8:30 PM). Nothing built — waiting
+  8:30 PM). Saved 5 Google reviews to `assets/data/reviews.json` at the owner's
+  request. Nothing built — waiting
   for "go".
