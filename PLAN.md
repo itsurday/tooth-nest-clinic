@@ -88,6 +88,21 @@ on testimonials (section 5.8) before publishing.
 - Online deposits/payments (UPI via Razorpay or similar)
 - Own clinic software (patients, diary, treatment records) replacing Google Calendar
 
+### 3.1 Skills installed (`.claude/skills/`, licences in `.claude/licenses/`)
+
+Every file was read before it was added. Use them while building.
+
+| Skill(s) | Source | Use for |
+|---|---|---|
+| `ponytail` (+ `-review`, `-audit`, `-debt`, `-gain`, `-help`) | DietrichGebert/ponytail (MIT) | Default mode: smallest complete change; `/ponytail-review` before each push. |
+| `ui-ux-pro-max` | nextlevelbuilder/ui-ux-pro-max-skill (MIT) | Offline design search: `python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain ux`. |
+| `frontend-design-direction`, `design-system`, `make-interfaces-feel-better`, `accessibility`, `seo`, `browser-qa`, `healthcare-phi-compliance` | affaan-m/ECC (MIT) | Design direction, tokens, polish, WCAG 2.2 AA, SEO, browser QA, patient-data privacy. |
+| `emil-design-eng`, `animate`, `animation-performance`, `animation-vocabulary`, `find-animation-opportunities`, `improve-animations`, `remove-animations`, `review-animations`, `break-ui`, `mobile-native`, `prototype` | emilkowalski/skill (MIT) | UI polish and motion, worst-case data testing, native feel on phones, switchable variants. Skipped: Expo, Swift, Sonner, React library picker, Apple gestures. |
+| `impeccable` | pbakaus/impeccable (Apache-2.0) | Design critique/audit/polish/typeset/colour/layout. **Instructions + references only**: the launcher that downloads a binary and the every-edit hooks are not installed, so it runs in its documented "launcher unavailable" mode. |
+| `design-taste-frontend` | Leonxlnx/taste-skill (MIT) | Art direction library (247 studied sites), anti-"AI slop" house style. Its Node scripts are included but running them was blocked by the session's safety check — needs the owner's permission. Output goes to `.taste-skill/` (ignored). |
+
+Not installed: rest of ECC, other ui-ux-pro-max skills, ArtCraft CLIs (downloaded to `/home/user/storytold/bin/` in session 1 only; running them needs the owner's permission).
+
 ## 4. Architecture
 
 ```
@@ -525,3 +540,6 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   Built templates 2–7 + `/templates/` comparison page with Unsplash stock
   photos (search pages block bots; images were picked by known IDs and checked
   on contact sheets). Waiting for the owner to choose a template.
+- **2026-10-30** — Added skills from emilkowal.ski (11 of 16), impeccable.style
+  (instructions only, no binary/hooks) and tasteskill.dev after reading every
+  file; restored the skills table (section 3.1). Added `.gitignore`.
