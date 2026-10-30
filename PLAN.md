@@ -442,7 +442,7 @@ The clinic must own every account (not a personal or developer account).
 - [x] Stock photos from Unsplash only for previews (`templates/img/`, credits in `CREDITS.txt`); real clinic photos must replace them in whichever template is chosen. Preview fonts self-hosted in `templates/fonts/`.
 - [x] QA: no overflow/console errors, axe WCAG 2.2 AA clean at 1440 and 390 for all templates
 - [x] **Design Round 2** (`templates/r2/1–7.html`, listed under "Design Round 2" on `/templates/`): rebuilt with Taste Skill + Emil + Impeccable. Each page follows a dealt Taste Skill direction (one-motif, place-carries-it, split-stage, uneven-photographs, page-is-the-object, hero-object, colour-chapters), an idea taken from the clinic's own inventory (signboard, green tooth, marigolds, two daily sessions, Manjira Nagar Colony), and one live thing: the visit planner (`templates/r2/r2.js`) that shows the real hours for a chosen day/session and writes the WhatsApp message. Gate: `lint.mjs` 0 FAIL; `inspect.mjs` 0 FAIL at 1440/768/390 for all seven; axe WCAG 2.2 AA clean.
-- Round 2 deviations to remember: Fontshare faces (Switzer, Gambarino, General Sans) swapped for Google stand-ins (Hanken Grotesk, Fraunces, Plus Jakarta Sans) because Fontshare is unreachable; open-collection image search (Openverse, Wikimedia, AIC, Met) and picsum were unreachable, so pictures are the clinic's own + Unsplash stock; no video (no footage source reachable); the "note from Dr. Ramya" in R2-3 is sample text (`TODO-CLINIC`).
+- Round 2 deviations to remember: Fontshare faces are now self-hosted (Switzer in R2-2, Gambarino + General Sans in R2-5, General Sans in R2-6; ITF Free Font License). Two local photographs from Wikimedia Commons (found via Openverse; CC BY-SA, credited in each page footer and `templates/img/CREDITS.txt`): Bolarum Bazar station behind "Plan your visit" in R2-2, Secunderabad Clock Tower behind the reviews in R2-4. Wikimedia rate-limits this environment (HTTP 429) and the Taste Skill `assets.mjs` search can't use the proxy, so images were fetched with curl and backoff. Still no video. The "note from Dr. Ramya" in R2-3 is sample text (`TODO-CLINIC`).
 - [ ] Owner picks a template (round 1 or 2, or a mix) → restyle the real site with it (then delete `templates/` or keep as archive)
 
 ### Phase 3 — Lead capture and alerts
@@ -552,3 +552,8 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
   dealt direction per page, an idea from the clinic itself, the visit planner as
   the live thing, lint + inspector to 0 FAIL at three widths, screenshot review.
   Waiting for the owner to choose.
+- **2026-10-30 (Round 2 sources)** — Owner allowed Openverse, Wikimedia and
+  Fontshare. Swapped the stand-in fonts for the dealt Fontshare faces and added
+  two credited local photographs (Bolarum Bazar station, Secunderabad Clock
+  Tower). Lint and inspector at 0 FAIL for R2-2/4/5/6; thumbnails refreshed.
+  Waiting for the owner to choose a template.

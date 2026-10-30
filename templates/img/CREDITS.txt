@@ -25,3 +25,7 @@ xray: https://unsplash.com/photos/1588776814546-1ffcf47267a5  (images.unsplash.c
 plant: https://unsplash.com/photos/1501004318641-b39e6451bec6  (images.unsplash.com/photo-1501004318641-b39e6451bec6)
 forest: https://unsplash.com/photos/1448375240586-882707db888b  (images.unsplash.com/photo-1448375240586-882707db888b)
 tree: https://unsplash.com/photos/1502082553048-f009c37129b9  (images.unsplash.com/photo-1502082553048-f009c37129b9)
+
+Local photographs (Wikimedia Commons, via Openverse), used in Design Round 2:
+- bolarum-bazar-station-1280.webp: "Bolarum Bazar Railway station North End" by Adityamadhav83, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=69873500 (resized)
+- secunderabad-clock-tower-1280.webp: "Secunderabad. clock tower" by Bhaskaranaidu, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=22413169 (resized)

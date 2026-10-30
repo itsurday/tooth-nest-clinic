@@ -1,10 +1,10 @@
 /* R2 · 2 — The place carries it (direction place-carries-it). Colours sampled from the real signboard and opening-day garlands.
-   Type: Switzer was dealt; Hanken Grotesk stands in (Fontshare is unreachable from this environment). */
+   Type: Switzer. */
 :root {
   --bg: #f1f3f4; --ink: #131a2e; --muted: #3d4559;
   --sign: #eef1f4; --marigold: #f0a321; --tooth: #2cb27f; --garland: #d9620f; --navy: #1f3586;
   --accent: #1f3586; --accent-deep: #172a6c; --on-accent: #fff;
-  --text-face: "Hanken Grotesk", system-ui, sans-serif;
+  --text-face: "Switzer", system-ui, sans-serif;
   --step-small: 0.875rem; --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); --step-lead: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
   --step-head: clamp(2.25rem, 1.5rem + 3vw, 4.25rem); --step-hero: clamp(3.25rem, 8.6vw, 8.25rem);
   --m: clamp(1rem, 3vw, 2rem); --radius: 12px; --focus: #f0a321;

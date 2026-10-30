@@ -1,9 +1,9 @@
 /* R2 · 6 — The object, large (direction hero-object). The smile is the object.
-   Type: General Sans was dealt; Plus Jakarta Sans stands in (Fontshare is unreachable here). */
+   Type: General Sans. */
 :root {
   --bg: #f2f2ef; --ink: #161a18; --muted: #4f5551; --paper: #f2f2ef; --deep: #102a22; --field: #dce8e0;
   --accent: #1a7a56; --accent-deep: #145e43; --on-accent: #fff;
-  --text-face: "Plus Jakarta Sans", system-ui, sans-serif;
+  --text-face: "General Sans", system-ui, sans-serif;
   --step-small: 0.875rem; --step-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem); --step-lead: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
   --step-head: clamp(2.75rem, 1.6rem + 3.9vw, 3.75rem); --step-poster: clamp(3rem, 1rem + 8vw, 8.5rem);
   --m: clamp(1rem, 2.2vw, 2rem); --radius: 0; --focus: #a9e3c8;
