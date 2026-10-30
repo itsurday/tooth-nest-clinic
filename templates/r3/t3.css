@@ -1,0 +1,99 @@
+/* R3 · 3 — Navy booking desk. Style: Calendly's "navy ink on cool marble" (styles.refero.design): every word in deep
+   navy, white cards on cool stone, 24px card corners, 8px buttons, one vivid colour for actions (here the logo green).
+   Navbar: announcement strip above a static bar (navbar.gallery categories). Hero: bento grid with stat tiles
+   (supahero). CTA: a scheduling card, host on the left and times on the right (cta.gallery). Footer: classic columns
+   with the full logo (footer.design). Icons: 3dicons colour. */
+:root {
+  --bg: #f0f3f8; --ink: #0b3558; --muted: #476788; --card: #fff; --cloud: #f8f9fb; --line: #d4e0ed;
+  --accent: #12855a; --accent-deep: #0d6a47; --on-accent: #fff;
+  --text-face: "General Sans", system-ui, sans-serif;
+  --step-small: 0.875rem; --step-body: 1.0625rem; --step-lead: clamp(1.1875rem, 1.05rem + 0.4vw, 1.375rem);
+  --step-head: clamp(2.125rem, 1.5rem + 2.4vw, 3.5rem); --step-hero: clamp(2.6rem, 1.6rem + 3vw, 4.25rem);
+  --m: clamp(1rem, 3vw, 2.5rem); --radius: 8px; --focus: #12855a; --icon: 3.5rem;
+}
+h1, h2 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.04; }
+h2 { font-size: var(--step-head); }
+h3 { font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.01em; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.7rem 1.3rem; border-radius: var(--radius); background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+.btn:hover { background: var(--accent-deep); }
+.btn.soft { background: #e6eef7; color: var(--ink); }
+.btn.soft:hover { background: var(--line); }
+section { padding: clamp(4rem, 8vw, 6.5rem) var(--m); }
+
+.announce { padding: 0.55rem var(--m); background: var(--ink); color: #fff; text-align: center; font-size: var(--step-small); }
+.announce a { color: #fff; font-weight: 600; }
+.top { display: flex; align-items: center; gap: 2rem; padding: 1rem var(--m); background: var(--card); }
+.top .wm { margin-right: auto; display: flex; align-items: center; gap: 0.6rem; text-decoration: none; font-weight: 600; font-size: 1.25rem; }
+.top nav { display: flex; gap: 1.75rem; }
+.top nav a { text-decoration: none; font-weight: 500; }
+.top nav a:hover { color: var(--accent); }
+
+.bento { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; padding-top: clamp(2rem, 4vw, 3rem); }
+.tile { background: var(--card); border-radius: 24px; overflow: hidden; }
+.tile.main { grid-row: 1 / 4; padding: clamp(2rem, 4vw, 3.5rem); display: flex; flex-direction: column; justify-content: flex-end; min-height: 34rem; }
+.tile.main .chip { margin-bottom: auto; display: inline-flex; align-self: flex-start; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem 0.4rem 0.5rem; border-radius: 999px; background: var(--bg); font-weight: 500; --icon: 2rem; }
+.tile.main .chip [data-open="true"] { color: var(--accent-deep); }
+.tile.main h1 { font-size: var(--step-hero); padding-top: 2rem; }
+.tile.main > p:not(.ctas) { font-size: var(--step-lead); line-height: 1.4; color: var(--muted); margin-top: 1.25rem; max-width: 34ch; }
+.tile.main .ctas { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+.tile.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo.a, .photo.b { grid-column: 2 / 4; aspect-ratio: 16 / 7; }
+.stat { padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; }
+.stat p { color: var(--muted); }
+.stat b { display: block; font-size: var(--step-head); font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: var(--ink); margin-bottom: 0.35rem; }
+
+.treat .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.treat article { background: var(--card); border-radius: 24px; padding: 1.75rem; display: grid; grid-template-columns: auto 1fr; column-gap: 1.25rem; align-items: center; transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.treat article:hover { transform: translateY(-4px); }
+.treat article .icon3d { grid-row: 1 / 3; }
+.treat article p { color: var(--muted); }
+
+.visit { background: var(--card); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.visit > img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: 24px; }
+.visit ol { margin-top: 2rem; display: grid; gap: 0.75rem; }
+.visit li { background: var(--cloud); border-radius: 16px; padding: 1.25rem 1.5rem; }
+.visit li p { color: var(--muted); margin-top: 0.25rem; }
+
+.fees { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.fees p { font-size: var(--step-lead); line-height: 1.45; color: var(--muted); margin-top: 1.25rem; max-width: 38ch; }
+.fees ul { display: grid; gap: 0.75rem; }
+.fees li.pic { padding: 0; overflow: hidden; }
+.fees li.pic img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+.fees li { display: flex; align-items: center; gap: 1rem; background: var(--card); border-radius: 16px; padding: 1rem 1.25rem; font-weight: 500; }
+
+.book { background: var(--card); }
+.book .card { display: grid; grid-template-columns: 1fr 1.6fr; max-width: 64rem; margin: 0 auto; background: var(--cloud); border-radius: 24px; overflow: hidden; }
+.book .who { padding: clamp(1.75rem, 3vw, 2.5rem); background: var(--bg); }
+.book .face { width: 4.5rem; height: 4.5rem; border-radius: 50%; object-fit: cover; object-position: top; }
+.book .name { margin-top: 0.35rem; color: var(--muted); font-weight: 500; }
+.book .who h2 { font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem); margin-top: 1rem; }
+.book .who ul { margin-top: 1.5rem; display: grid; gap: 0.75rem; }
+.book .who li { display: flex; align-items: center; gap: 0.6rem; --icon: 2rem; color: var(--muted); }
+.book .when { padding: clamp(1.75rem, 3vw, 2.5rem); }
+.book .when h3 { margin-bottom: 1.25rem; }
+.book .planner { --pl-chip: #e6eef7; --pl-chip-hover: var(--line); --pl-on: var(--ink); --pl-on-ink: #fff; }
+.book .planner button { color: var(--ink); }
+.book .planner button[aria-pressed="true"] { color: #fff; }
+.book blockquote { max-width: 40rem; margin: 2.5rem auto 0; text-align: center; font-size: var(--step-lead); line-height: 1.4; }
+.book blockquote span { display: block; margin-top: 0.75rem; font-size: var(--step-body); color: var(--muted); }
+
+.foot { padding: 4rem var(--m) 2rem; }
+.foot .cols { display: grid; grid-template-columns: 1.2fr repeat(4, 1fr); gap: 2rem; }
+.foot h2 { font-size: var(--step-body); font-weight: 600; letter-spacing: 0; margin-bottom: 0.75rem; }
+.foot p { color: var(--muted); line-height: 1.7; }
+.foot a { color: var(--ink); text-decoration: none; }
+.foot a:hover { color: var(--accent); }
+.foot .small { margin-top: 3rem; font-size: var(--step-small); }
+
+@media (max-width: 60rem) {
+  .top nav { display: none; }
+  .bento { grid-template-columns: 1fr 1fr; }
+  .tile.main { grid-column: 1 / -1; grid-row: auto; min-height: 0; }
+  .photo.a, .photo.b { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+  .treat .grid { grid-template-columns: 1fr 1fr; }
+  .visit, .fees, .book .card { grid-template-columns: 1fr; }
+  .foot .cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 36rem) {
+  .bento, .treat .grid { grid-template-columns: 1fr; }
+}

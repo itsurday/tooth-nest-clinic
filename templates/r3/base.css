@@ -1,0 +1,7 @@
+/* Design Round 3 — shared foundation. Reuses Round 2's base (reset, entrances, planner, preview bar);
+   each page sets its own tokens. Pieces chosen from navbar.gallery, footer.design, cta.gallery,
+   styles.refero.design, supahero.io and 3dicons.co. */
+@import url("../r2/base.css");
+@import url("fonts/fonts.css");
+
+.icon3d { width: var(--icon, 4rem); height: auto; aspect-ratio: 1; object-fit: contain; }

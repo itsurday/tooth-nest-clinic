@@ -1,0 +1,77 @@
+/* R3 · 5 — Soft and quiet. Style: Duna's "sunset watercolour on warm marble" (styles.refero.design): an almost
+   colourless page in aubergine ink, pillowy 24px cards and pill buttons, and one picture as the only colour, here the
+   real marigold garlands from opening day. Navbar: a floating pill (navbar.gallery). Hero: one huge word with the
+   picture over its lower half (supahero). CTA: full-bleed photo with a rounded card set into it (cta.gallery).
+   Footer: giant faded wordmark (footer.design). Icons: 3dicons clay, white like the rest of the page. */
+:root {
+  --bg: #f7f7f5; --ink: #1b0624; --muted: #5a5160; --bone: #edece7; --card: #fff;
+  --accent: #1b0624; --accent-deep: #000; --on-accent: #fff;
+  --text-face: "General Sans", system-ui, sans-serif; --display: "Clash Display", system-ui, sans-serif;
+  --step-small: 0.875rem; --step-body: 1.0625rem; --step-lead: clamp(1.1875rem, 1.05rem + 0.45vw, 1.4375rem);
+  --step-head: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  --m: clamp(1rem, 3vw, 2.5rem); --radius: 999px; --focus: #1b0624; --icon: 4.5rem;
+}
+h1, h2 { font-family: var(--display); font-weight: 500; letter-spacing: -0.04em; line-height: 0.95; }
+h2 { font-size: var(--step-head); }
+h3 { font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.01em; }
+.go, .soft { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.7rem 1.4rem; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; }
+.go:hover { background: #000; }
+.soft { background: var(--bone); color: var(--ink); }
+.soft:hover { background: #e2e0d9; }
+section { padding: clamp(4rem, 8vw, 6.5rem) var(--m); }
+
+.top { position: sticky; top: 0.75rem; z-index: 30; display: flex; justify-content: center; padding: 0.75rem var(--m) 0; }
+.top nav { display: flex; align-items: center; gap: 0.25rem; padding: 0.35rem 0.35rem 0.35rem 1rem; background: var(--card); border-radius: 999px; }
+.top nav a { padding: 0.55rem 0.9rem; border-radius: 999px; text-decoration: none; font-weight: 500; }
+.top nav a:not(.go):hover { background: var(--bone); }
+.top .wm { display: flex; align-items: center; gap: 0.45rem; padding-left: 0; margin-right: 1rem; font-weight: 600; }
+.top .go { min-height: 2.75rem; margin-left: 0.5rem; }
+
+.hero { padding-top: clamp(4rem, 8vw, 6rem); text-align: center; }
+.hero .big { display: block; font-size: clamp(5rem, 25vw, 24rem); line-height: 0.8; letter-spacing: -0.06em; }
+.paint { width: min(100%, 64rem); margin: clamp(-4.5rem, -4vw, -1rem) auto 0; position: relative; }
+.paint img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: center 80%; border-radius: 24px; }
+.under { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; width: min(100%, 64rem); margin: 2rem auto 0; text-align: left; }
+.under p:first-child { font-size: var(--step-lead); line-height: 1.4; max-width: 34ch; }
+.under .ctas { display: flex; gap: 0.5rem; flex: none; }
+
+.doctor .card { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; max-width: 64rem; margin: 0 auto; background: var(--card); border-radius: 24px; padding: clamp(1rem, 2vw, 1.5rem); }
+.doctor img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; filter: grayscale(1); }
+.doctor .role { color: var(--muted); margin: 0.5rem 0 1.5rem; font-size: var(--step-lead); }
+.doctor p:last-child { line-height: 1.6; max-width: 42ch; padding-right: 1rem; }
+
+.treat h2, .fees h2 { text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 64rem; margin: 3rem auto 0; }
+.grid > * { background: var(--card); border-radius: 24px; padding: 2rem; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.grid > *:hover { transform: translateY(-4px); }
+.grid h3 { margin: 1.25rem 0 0.5rem; }
+.grid p { color: var(--muted); }
+.fees .grid p { margin-top: 1.25rem; color: var(--ink); }
+
+.voice { text-align: center; }
+.voice img { width: min(100%, 26rem); aspect-ratio: 4 / 3; object-fit: cover; border-radius: 24px; margin: 0 auto 3rem; filter: grayscale(1); }
+.voice blockquote { font-family: var(--display); font-size: clamp(1.375rem, 1rem + 1.3vw, 2.125rem); line-height: 1.25; letter-spacing: -0.02em; max-width: 30ch; margin: 0 auto; }
+.voice p { margin-top: 1.5rem; color: var(--muted); }
+
+.find { position: relative; padding: clamp(5rem, 12vw, 10rem) var(--m); isolation: isolate; margin: 0 var(--m); border-radius: 24px; overflow: hidden; }
+.find > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: grayscale(1); }
+.find::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(27 6 36 / 0.45); }
+.inset { max-width: 38rem; margin: 0 auto; background: var(--card); border-radius: 24px; padding: clamp(1.5rem, 4vw, 2.5rem); }
+.inset h2 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.inset .addr { color: var(--muted); margin: 0.75rem 0 1.75rem; }
+.inset .planner { --pl-chip: var(--bg); --pl-chip-hover: var(--bone); --pl-on: var(--ink); --pl-on-ink: #fff; --radius: 999px; }
+
+.foot { padding: 3rem var(--m) 0; overflow: hidden; }
+.foot .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 2rem; color: var(--muted); }
+.foot a { color: var(--ink); text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+.foot .word { font-family: var(--display); font-weight: 500; font-size: 19.6vw; letter-spacing: -0.06em; line-height: 0.76; color: #857d89; white-space: nowrap; margin: 2.5rem 0 -0.04em -0.04em; }
+
+@media (max-width: 52rem) {
+  .hide-s { display: none; }
+  .paint { margin-top: 0.75rem; }
+  .under { flex-direction: column; align-items: flex-start; }
+  .doctor .card, .grid { grid-template-columns: 1fr; }
+  .doctor p:last-child { padding: 0 0.5rem 1rem; }
+  .find { margin: 0; border-radius: 0; }
+}
