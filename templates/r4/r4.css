@@ -1,0 +1,173 @@
+/* Design Round 4 — one page, the best piece of every round:
+   - colours from the real signboard, logo and marigolds (R2-2), deep-green chapters (R2-7, R3-2)
+   - announcement strip with open-now and an emergency call (R3-3), floating pill navigation (R3-5)
+   - bento hero with stat tiles (R3-3); the photo masked by the green tooth from the logo (R2-1)
+   - warm editorial voice in serif for the doctor and fees (R3-1), polaroid of the dentist (R3-4)
+   - treatments on sticky notes with 3D icons and visit times (R3-4, R2-5 timings, 3dicons)
+   - first-visit tiles that grow (R2-6), pay-in-stages list (R3-1), reviews beside a photo (R3-4)
+   - booking card: host on the left, live planner on the right, with a namaskar (R3-3, R3-4, R2 planner)
+   - giant wordmark footer (R3-1/2/5) and a phone action dock: Call · WhatsApp · Book (R1)
+   Motion follows Emil Kowalski's rules: custom ease-out, 160ms presses, hover only with a mouse,
+   clip reveals on scroll, short staggers, gentler under reduced motion. */
+@import url("../r3/base.css");
+
+:root {
+  --bg: #f6f5f1; --ink: #10241e; --muted: #46524d; --paper: #fff; --sand: #ecebe5;
+  --green: #2cb27f; --deep: #0f2f27; --deep-2: #17423a; --mint: #dff3e8; --marigold: #f0a321; --navy: #1f3586;
+  --accent: #12704d; --accent-deep: #0c5539; --on-accent: #fff;
+  --text-face: "General Sans", system-ui, sans-serif; --display: "Cabinet Grotesk", system-ui, sans-serif; --serif: "Gambetta", Georgia, serif;
+  --step-small: 0.875rem; --step-body: 1.0625rem; --step-lead: clamp(1.1875rem, 1.05rem + 0.45vw, 1.4375rem);
+  --step-head: clamp(2.25rem, 1.4rem + 3.2vw, 4.25rem); --step-hero: clamp(2.25rem, 1.1rem + 4vw, 4.75rem);
+  --m: clamp(1rem, 3vw, 2.5rem); --radius: 999px; --focus: #12704d; --icon: 3.5rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+h1, h2 { font-family: var(--display); font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
+h2 { font-size: var(--step-head); }
+h3 { font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.01em; }
+.voice { font-family: var(--serif); font-weight: 300; font-size: var(--step-lead); line-height: 1.4; }
+section { padding: clamp(4.5rem, 9vw, 7.5rem) var(--m); }
+
+/* Buttons: one shape, instant press feedback */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.7rem 1.35rem; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; transition: transform 160ms var(--ease-out), background-color 200ms ease; }
+.btn.soft { background: var(--sand); color: var(--ink); }
+.press:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: var(--accent-deep); }
+  .btn.soft:hover { background: #e0dfd7; }
+}
+
+/* Announcement + floating pill navigation */
+.announce { padding: 0.55rem var(--m); background: var(--deep); color: #fff; text-align: center; font-size: var(--step-small); }
+.announce a { color: #fff; font-weight: 600; }
+.announce [data-open="true"] { color: #8fe3bd; }
+.top { position: sticky; top: 0.75rem; z-index: 40; padding: 0.75rem var(--m) 0; }
+.pillnav { display: flex; align-items: center; gap: 0.25rem; padding: 0.35rem 0.35rem 0.35rem 1.1rem; background: var(--paper); border-radius: 999px; }
+.pillnav .wm { display: flex; align-items: center; gap: 0.5rem; margin-right: auto; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; }
+.pillnav .link { padding: 0.55rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: 500; transition: background-color 200ms ease; }
+@media (hover: hover) and (pointer: fine) { .pillnav .link:hover { background: var(--sand); } }
+.pillnav .btn { min-height: 2.75rem; margin-left: 0.4rem; }
+
+/* Bento hero; the photo wears the tooth from the logo */
+.hero { display: grid; grid-template-columns: 1.9fr 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; padding-top: 1.5rem; }
+.tile { background: var(--paper); border-radius: 28px; }
+.tile.lead { grid-row: 1 / 3; padding: clamp(2rem, 4vw, 3.5rem); display: flex; flex-direction: column; justify-content: flex-end; min-height: 36rem; }
+.tile.lead h1 { font-size: var(--step-hero); }
+.tile.lead > p:not(.ctas) { font-family: var(--serif); font-weight: 300; font-size: var(--step-lead); line-height: 1.4; margin-top: 1.5rem; max-width: 34ch; }
+.tile.lead .ctas { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.25rem; }
+.toothpic { grid-column: 2 / 4; background: var(--mint); display: grid; place-items: center; padding: 1.5rem; }
+.toothpic img { width: min(100%, 26rem); aspect-ratio: 1 / 0.92; object-fit: cover; clip-path: url(#tooth); transition: transform 400ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .toothpic:hover img { transform: scale(1.03) rotate(-2deg); } }
+.stat { padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; }
+.stat.card { background: var(--deep); color: #fff; }
+.stat p { color: var(--muted); }
+.stat.card p { color: #cfe3da; }
+.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 1.4rem + 2vw, 3rem); letter-spacing: -0.03em; line-height: 1; color: var(--ink); margin-bottom: 0.4rem; }
+.stat.card b { color: var(--green); }
+
+/* Doctor on a deep-green chapter */
+.doctor { background: var(--deep); color: #fff; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: center; margin-top: clamp(4rem, 8vw, 6rem); }
+.polaroid { background: #fff; padding: 0.9rem 0.9rem 3rem; border-radius: 14px; rotate: -2deg; }
+.polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }
+.doctor h2 { color: var(--green); }
+.doctor .voice { margin: 1.75rem 0 1rem; max-width: 36ch; }
+.doctor .voice + p { color: #cfe3da; max-width: 46ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+.facts li { padding: 0.55rem 1.05rem; border-radius: 999px; background: var(--deep-2); }
+.facts b { color: var(--marigold); font-family: var(--display); font-weight: 800; }
+
+/* Treatments on sticky notes */
+.treat h2, .visit h2, .reviews h2 { text-align: center; }
+.board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 3rem; }
+.note { background: var(--c); border-radius: 16px; padding: 1.75rem 1.5rem; rotate: var(--r); transition: rotate 300ms var(--ease-out), transform 300ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .note:hover { rotate: 0deg; transform: translateY(-4px); } }
+.note h3 { margin: 1.25rem 0 0.75rem; }
+.note li { display: flex; justify-content: space-between; gap: 0.75rem; padding-block: 0.35rem; }
+.note li span { color: var(--muted); white-space: nowrap; }
+
+/* First visit: tiles that grow */
+.tiles { display: flex; gap: 0.75rem; height: 30rem; margin-top: 3rem; }
+.visit .tile { position: relative; flex: 1; overflow: hidden; color: #fff; text-decoration: none; border-radius: 24px; transition: flex-grow 300ms var(--ease-in-out); }
+.visit .tile:focus-visible { flex-grow: 2.2; }
+@media (hover: hover) and (pointer: fine) { .visit .tile:hover { flex-grow: 2.2; } }
+.visit .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.visit .txt { position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; padding: 1.1rem 1.25rem; border-radius: 16px; background: rgb(15 47 39 / 0.88); }
+.visit .txt p { margin-top: 0.25rem; color: #e3efe9; }
+
+/* Fees */
+.fees { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; background: var(--mint); }
+.fees .coin { --icon: clamp(5.5rem, 9vw, 7.5rem); margin-bottom: 1.25rem; }
+.fees .voice { margin-top: 1.5rem; max-width: 32ch; }
+.ways { display: grid; gap: 0.75rem; }
+.ways li { background: var(--paper); border-radius: 20px; padding: 1.4rem 1.6rem; }
+.ways p { margin-top: 0.3rem; color: var(--muted); }
+
+/* Reviews beside a photo */
+.quotes { display: grid; grid-template-columns: 1fr 0.75fr 1fr; gap: 1.25rem; align-items: center; margin-top: 3rem; }
+.quotes figure:not(.pic) { background: var(--paper); border-radius: 24px; padding: clamp(1.5rem, 3vw, 2.25rem); }
+.quotes blockquote { font-family: var(--serif); font-weight: 300; font-size: var(--step-lead); line-height: 1.4; }
+.quotes figcaption { margin-top: 1.25rem; color: var(--muted); }
+.quotes .pic img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; }
+
+/* Booking card: host left, live planner right */
+.book { background: var(--paper); }
+.book .card { display: grid; grid-template-columns: 1fr 1.5fr; background: var(--bg); border-radius: 28px; overflow: hidden; }
+.who { padding: clamp(1.75rem, 3.5vw, 3rem); background: var(--deep); color: #fff; }
+.face { width: 4.5rem; height: 4.5rem; border-radius: 50%; object-fit: cover; object-position: top; }
+.who h2 { font-size: clamp(2rem, 1.4rem + 2vw, 3.25rem); margin-top: 1.5rem; color: #fff; }
+.who ul { display: grid; gap: 0.8rem; margin-top: 2rem; }
+.who li { display: flex; align-items: center; gap: 0.7rem; --icon: 2.1rem; color: #cfe3da; }
+.when { padding: clamp(1.75rem, 3.5vw, 3rem); }
+.pick { font-size: var(--step-lead); line-height: 1.4; margin-bottom: 1.75rem; max-width: 40ch; }
+.when .planner { --pl-chip: var(--paper); --pl-chip-hover: var(--sand); --pl-on: var(--deep); --pl-on-ink: #fff; }
+
+/* Find the green tooth */
+.find { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.find figure img { width: 100%; aspect-ratio: 16 / 10.5; object-fit: cover; border-radius: 28px; }
+.find address { font-style: normal; font-size: var(--step-lead); line-height: 1.45; margin-top: 1.5rem; }
+.find .links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+.find .near { margin-top: 1.75rem; color: var(--muted); max-width: 40ch; }
+
+/* Footer with the giant wordmark */
+.foot { background: var(--deep); color: #fff; padding: 4rem var(--m) 0; overflow: hidden; }
+.foot .cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; line-height: 1.7; color: #cfe3da; }
+.foot b { display: block; color: #fff; margin-bottom: 0.4rem; }
+.foot a { color: #fff; text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .foot a:hover { color: var(--green); } }
+.foot .small { margin-top: 3rem; font-size: var(--step-small); color: #cfe3da; }
+.foot .word { font-family: var(--display); font-weight: 800; font-size: 19.2vw; letter-spacing: -0.05em; line-height: 0.78; color: var(--green); white-space: nowrap; margin: 2rem 0 -0.06em -0.03em; }
+
+/* Phone action dock */
+.dock { display: none; }
+
+/* Scroll reveal for photographs: a clip from the bottom, eased out */
+/* The frame is observed (a fully clipped element never counts as visible), the photo inside is clipped. */
+.r2-js [data-r] > .reveal { clip-path: inset(0 0 100% 0); }
+.r2-js [data-r].in > .reveal { clip-path: inset(0 0 0 0); transition: clip-path 700ms var(--ease-out) 80ms; }
+.r2-js [data-r].in { transition-timing-function: var(--ease-out); }
+
+@media (max-width: 60rem) {
+  .pillnav .link { display: none; }
+  .hero { grid-template-columns: 1fr 1fr; }
+  .tile.lead { grid-column: 1 / -1; grid-row: auto; min-height: 0; }
+  .toothpic { grid-column: 1 / -1; }
+  .board { grid-template-columns: 1fr 1fr; }
+  .doctor, .fees, .find, .book .card { grid-template-columns: 1fr; }
+  .polaroid { width: min(80%, 22rem); }
+  .quotes { grid-template-columns: 1fr 1fr; }
+  .quotes .pic { display: none; }
+  .foot .cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 40rem) {
+  .board, .quotes { grid-template-columns: 1fr; }
+  .tiles { flex-direction: column; height: auto; }
+  .visit .tile { min-height: 15rem; }
+  .dock { position: fixed; z-index: 50; left: 0.75rem; right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.35rem; padding: 0.35rem; background: var(--deep); border-radius: 999px; }
+  .dock a { display: grid; place-items: center; min-height: 3rem; border-radius: 999px; color: #fff; text-decoration: none; font-weight: 600; }
+  .dock a.go { background: var(--green); color: var(--deep); }
+  body { padding-bottom: 5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .note, .polaroid { rotate: 0deg; }
+  .r2-js [data-r] > .reveal { clip-path: none; }
+  .visit .tile { transition: none; }
+}
