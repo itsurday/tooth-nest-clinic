@@ -11,6 +11,10 @@
     body { background: #f4f6f4; color: #1f2925; font-family: "Noto Sans", system-ui, sans-serif; }
     header { padding-block: 3rem 1.5rem; }
     h1 { font: 700 clamp(2rem, 1.5rem + 2vw, 3rem)/1.1 "Figtree", sans-serif; }
+    .round { padding-bottom: 3rem; }
+    .round > h2 { font: 700 clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem)/1.15 "Figtree", sans-serif; margin: 1rem 0 0.4rem; }
+    .round > p { color: #55605b; max-width: 48rem; margin-bottom: 1.5rem; }
+    .round + .round { border-top: 2px solid #dfe5e2; padding-top: 2.5rem; }
     header p { color: #55605b; max-width: 44rem; }
     .grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); padding-bottom: 4rem; }
     .card { background: #fff; border: 1px solid #dfe5e2; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
@@ -18,7 +22,7 @@
     .shots img { width: 100%; aspect-ratio: 1440 / 1100; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid #dfe5e2; }
     .shots img.m { aspect-ratio: 390 / 700; }
     .body { padding: 1.1rem 1.25rem 1.4rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
-    .body h2 { font: 700 1.25rem "Figtree", sans-serif; margin: 0; }
+    .body h3 { font: 700 1.25rem "Figtree", sans-serif; margin: 0; }
     .body .from { font-size: 0.875rem; color: #55605b; }
     .body p { font-size: 0.95rem; margin: 0.3rem 0 0.8rem; flex: 1; }
     .body a.open { align-self: flex-start; display: inline-flex; min-height: 2.75rem; align-items: center; padding: 0.5rem 1.1rem; border-radius: 999px; background: #12352b; color: #fff; text-decoration: none; font: 700 0.95rem "Figtree", sans-serif; }
@@ -31,24 +35,48 @@
     <header>
       <span class="badge">Design preview · not the live site</span>
       <h1>Tooth Nest home page templates</h1>
-      <p>Seven layouts with the same Tooth Nest content, so you compare design only. Open each on your phone too. Templates 2–7 use stock photos (Unsplash) for the preview; the chosen one will use the clinic's real photos.</p>
+      <p>Two rounds of seven layouts with the same Tooth Nest content, so you compare design only. Open each on your phone too. Stock photos (Unsplash) are for the preview; the chosen design will use the clinic's real photos.</p>
     </header>
+    <section class="round" aria-labelledby="r1">
+    <h2 id="r1">Design Round 1</h2>
+    <p>Inspired by the best dental clinic sites on Awwwards.</p>
     <div class="grid">
       <article class="card"><div class="shots"><img src="/templates/shots/1-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/1-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 1 · Current site</h2><span class="from">Built in Phase 2</span><p>Clean and friendly with the logo greens, nest underline and real clinic photos.</p><a class="open" href="/">Open template 1</a></div></article>
+        <div class="body"><h3>Template 1 · Current site</h3><span class="from">Built in Phase 2</span><p>Clean and friendly with the logo greens, nest underline and real clinic photos.</p><a class="open" href="/">Open template 1</a></div></article>
       <article class="card"><div class="shots"><img src="/templates/shots/2-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/2-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 2 · Local &amp; Trusted</h2><span class="from">Inspired by Clínica Dental Dr. M. Esteve (Palamós)</span><p>Full-photo hero with elegant serif type, opening-hours strip, "name on the door", dark green treatment grid, Book · Emergency · WhatsApp bar on phones.</p><a class="open" href="/templates/2.html">Open template 2</a></div></article>
+        <div class="body"><h3>Template 2 · Local &amp; Trusted</h3><span class="from">Inspired by Clínica Dental Dr. M. Esteve (Palamós)</span><p>Full-photo hero with elegant serif type, opening-hours strip, "name on the door", dark green treatment grid, Book · Emergency · WhatsApp bar on phones.</p><a class="open" href="/templates/2.html">Open template 2</a></div></article>
       <article class="card"><div class="shots"><img src="/templates/shots/3-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/3-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 3 · Calm Sage</h2><span class="from">Inspired by Atelier Dental</span><p>Soft sage green, refined Marcellus headings, overlapping photos, sideways treatment row, payment-plan card.</p><a class="open" href="/templates/3.html">Open template 3</a></div></article>
+        <div class="body"><h3>Template 3 · Calm Sage</h3><span class="from">Inspired by Atelier Dental</span><p>Soft sage green, refined Marcellus headings, overlapping photos, sideways treatment row, payment-plan card.</p><a class="open" href="/templates/3.html">Open template 3</a></div></article>
       <article class="card"><div class="shots"><img src="/templates/shots/4-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/4-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 4 · Bright Family</h2><span class="from">Inspired by Natalie Herzel (Hamburg)</span><p>Light and airy, thin capitals with italic accents, numbered values on a green band, 001–012 treatment list.</p><a class="open" href="/templates/4.html">Open template 4</a></div></article>
+        <div class="body"><h3>Template 4 · Bright Family</h3><span class="from">Inspired by Natalie Herzel (Hamburg)</span><p>Light and airy, thin capitals with italic accents, numbered values on a green band, 001–012 treatment list.</p><a class="open" href="/templates/4.html">Open template 4</a></div></article>
       <article class="card"><div class="shots"><img src="/templates/shots/5-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/5-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 5 · Book-First</h2><span class="from">Structure inspired by Marylebone Smile Clinic</span><p>Info strip, hero with dentist card and 4.9 ★ rating, trust strip, floating WhatsApp, clear 4-step plan.</p><a class="open" href="/templates/5.html">Open template 5</a></div></article>
+        <div class="body"><h3>Template 5 · Book-First</h3><span class="from">Structure inspired by Marylebone Smile Clinic</span><p>Info strip, hero with dentist card and 4.9 ★ rating, trust strip, floating WhatsApp, clear 4-step plan.</p><a class="open" href="/templates/5.html">Open template 5</a></div></article>
       <article class="card"><div class="shots"><img src="/templates/shots/6-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/6-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 6 · Bold Smile</h2><span class="from">Inspired by Nova Dental (Webflow)</span><p>Full-screen smile, very large type mixing sans and italic serif, numbered cards, stories grid.</p><a class="open" href="/templates/6.html">Open template 6</a></div></article>
+        <div class="body"><h3>Template 6 · Bold Smile</h3><span class="from">Inspired by Nova Dental (Webflow)</span><p>Full-screen smile, very large type mixing sans and italic serif, numbered cards, stories grid.</p><a class="open" href="/templates/6.html">Open template 6</a></div></article>
       <article class="card"><div class="shots"><img src="/templates/shots/7-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/7-m.webp" alt="" loading="lazy"></div>
-        <div class="body"><h2>Template 7 · Best of</h2><span class="from">Pieces from templates 2–6</span><p>Booking-first hero with serif accents, hours strip, name on the door, numbered treatments with nearby areas, sage payments panel, review grid, phone pill bar.</p><a class="open" href="/templates/7.html">Open template 7</a></div></article>
+        <div class="body"><h3>Template 7 · Best of</h3><span class="from">Pieces from templates 2–6</span><p>Booking-first hero with serif accents, hours strip, name on the door, numbered treatments with nearby areas, sage payments panel, review grid, phone pill bar.</p><a class="open" href="/templates/7.html">Open template 7</a></div></article>
     </div>
+    </section>
+    <section class="round" aria-labelledby="r2">
+    <h2 id="r2">Design Round 2</h2>
+    <p>Rebuilt with the added design skills: Taste Skill (directions dealt from 247 studied sites, checked in a real browser at 1440, 768 and 390 px), Emil Kowalski's polish and motion rules, and Impeccable's design guidance. Every page has one live thing: a visit planner that shows the real hours for the day you pick and writes your WhatsApp message.</p>
+    <div class="grid">
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-1-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-1-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 1 · One motif</h3><span class="from">tasteskill direction "One motif" · Schibsted Grotesk</span><p>The green tooth from the signboard becomes the only shape: it masks every photo and marks every list. Tabbed-folder hero on deep green, many-into-one diagram, coupon-style visit planner.</p><a class="open" href="/templates/r2/1.html">Open round 2 · template 1</a></div></article>
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-2-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-2-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 2 · The place carries it</h3><span class="from">Direction "The place carries it" · Hanken Grotesk</span><p>The signboard and opening-day marigolds become the navigation: five colour swatches sampled from the real clinic photos, each the colour of the section it opens.</p><a class="open" href="/templates/r2/2.html">Open round 2 · template 2</a></div></article>
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-3-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-3-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 3 · The split stage</h3><span class="from">Direction "The split stage" · Work Sans</span><p>The rooms you pass through (door, dentist, chair, reception) stay still on the left and change as you read on the right. A note from Dr. Ramya, a treatment menu, a visit slip.</p><a class="open" href="/templates/r2/3.html">Open round 2 · template 3</a></div></article>
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-4-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-4-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 4 · Photographs at uneven sizes</h3><span class="from">Direction "Photographs at uneven sizes" · STIX Two Text</span><p>The window poster's services become prints pinned along a rail: a quiet serif page where photographs lead, ending with the neighbourhoods patients come from.</p><a class="open" href="/templates/r2/4.html">Open round 2 · template 4</a></div></article>
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-5-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-5-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 5 · The page is the object</h3><span class="from">Direction "The page is the object" · Fraunces + Plus Jakarta Sans</span><p>The signboard's timings panel becomes the appointment card the page is printed on; each section is more stationery (visiting card, folded menu, tear-off slip). A ticket stub stays pinned.</p><a class="open" href="/templates/r2/5.html">Open round 2 · template 5</a></div></article>
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-6-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-6-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 6 · The object, large</h3><span class="from">Direction "The object, large" · Plus Jakarta Sans</span><p>A smile, closer than seems reasonable, fills the screen and slowly crossfades. Treatments at poster scale, visit tiles that grow, reviews in the gutters.</p><a class="open" href="/templates/r2/6.html">Open round 2 · template 6</a></div></article>
+      <article class="card"><div class="shots"><img src="/templates/shots/r2-7-d.webp" alt="" loading="lazy"><img class="m" src="/templates/shots/r2-7-m.webp" alt="" loading="lazy"></div>
+        <div class="body"><h3>Round 2 · Template 7 · Best of, in colour chapters</h3><span class="from">Direction "Colour chapters" · Bricolage Grotesque</span><p>Each section is a full colour chapter taken from the signboard and marigolds; the headline "Safe in the nest" sits across the seam of two fields. Borrows the best piece of 1–6.</p><a class="open" href="/templates/r2/7.html">Open round 2 · template 7</a></div></article>
+    </div>
+    </section>
     <footer>Stock photo credits: <a href="/templates/img/CREDITS.txt">CREDITS.txt</a> (Unsplash licence).</footer>
   </main>
 </body>

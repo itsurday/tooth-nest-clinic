@@ -1,0 +1,106 @@
+/* R2 · 4 — Photographs at uneven sizes (direction uneven-photographs). Type: STIX Two Text. */
+:root {
+  --bg: #f3f4f1; --ink: #1c2420; --muted: #4a5550; --sage: #dfe7df; --deep: #173b30;
+  --accent: #1a7a56; --accent-deep: #145e43; --on-accent: #fff;
+  --text-face: "STIX Two Text", Georgia, serif;
+  --step-small: 0.875rem; --step-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem); --step-lead: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-head: clamp(1.9rem, 1.5rem + 1.6vw, 2.75rem); --step-hero: clamp(2rem, 2.8vw, 2.75rem);
+  --m: 5vw; --radius: 0; --focus: #1a7a56;
+}
+h1, h2, h3 { font-weight: 400; letter-spacing: -0.01em; line-height: 1.12; }
+h2 { font-size: var(--step-head); }
+h3 { font-size: var(--step-lead); }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 1.25rem; padding-inline: var(--m); }
+.btn { display: inline-flex; align-items: center; min-height: 3rem; padding: 0.7rem 1.3rem; background: var(--accent); color: #fff; text-decoration: none; font-family: system-ui, sans-serif; font-weight: 600; font-size: 1rem; }
+.btn:hover { background: var(--accent-deep); }
+figure img { width: 100%; height: 100%; object-fit: cover; }
+figcaption { font-size: var(--step-small); color: var(--muted); margin-top: 0.6rem; }
+
+.top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; padding: 1.4rem var(--m); }
+.top .wm { text-decoration: none; font-size: var(--step-lead); display: flex; gap: 0.5rem; align-items: center; }
+.top .wm img { width: 1.8rem; }
+.top nav { display: flex; gap: 1.75rem; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--accent); }
+.top .btn { justify-self: end; }
+
+/* Hero: three prints on one rail */
+.rail { position: relative; min-height: calc(100svh - 6rem); align-items: start; padding-top: 10svh; overflow: hidden; }
+.rail .lead { grid-column: 1 / 4; display: grid; gap: 1.5rem; align-content: start; }
+.rail .p1 { width: 66%; aspect-ratio: 1; }
+.rail .p2 { grid-column: 4 / 10; height: 80svh; }
+.rail .p3 { grid-column: 10 / 13; aspect-ratio: 4 / 5; max-height: 60svh; margin-right: calc(-1 * var(--m) - 6vw); }
+.rail .title { padding-right: 1rem; }
+.rail h1 { font-size: var(--step-hero); line-height: 1.02; }
+.rail .title p { margin-top: 1rem; max-width: 30ch; color: var(--muted); }
+.rail .title .btn { margin-top: 1.5rem; }
+
+section { padding-block: clamp(7rem, 12vw, 11rem); }
+
+/* About: wide photo, colour tile, facts */
+.about .head { grid-column: 2 / 8; }
+.about .head p { margin-top: 1.25rem; max-width: 40ch; }
+.about .wide { grid-column: 1 / 9; margin-top: 3rem; aspect-ratio: 16 / 10; }
+.about .tile { grid-column: 9 / 13; margin-top: 8rem; background: var(--sage); padding: 1.75rem; align-self: start; }
+.about .tile dl > div + div { margin-top: 1.4rem; }
+.about .tile dt { font-size: var(--step-head); line-height: 1; }
+.about .tile dd { color: var(--muted); margin-top: 0.3rem; }
+
+/* Treatments: one scene, stepping statements */
+.stepping .pic { grid-column: 1 / 7; grid-row: 1 / 8; height: 100%; min-height: 70svh; }
+.stepping h2 { grid-column: 8 / 13; }
+.stepping .st { grid-column: 8 / 13; margin-top: 2.5rem; padding-left: calc(var(--k) * 2.2rem); }
+.stepping .st p { color: var(--muted); margin-top: 0.3rem; max-width: 36ch; }
+
+/* How it works: photographs down a diagonal */
+.diag h2 { grid-column: 2 / 9; margin-bottom: 3rem; }
+.diag .s { grid-column: var(--c); margin-top: var(--t, 0); }
+.diag .s img { aspect-ratio: var(--r); }
+.diag .s h3 { margin-top: 1rem; }
+.diag .s p { color: var(--muted); max-width: 32ch; }
+
+/* Testimonial: quotation over a photograph */
+.quote { position: relative; padding: 0; min-height: 90svh; display: grid; align-items: end; color: #fff; isolation: isolate; }
+.quote > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.quote::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(12 22 18 / 0.55); }
+.quote .in { padding: 6rem var(--m); max-width: 60rem; }
+.quote blockquote { font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem); line-height: 1.3; max-width: 32ch; margin-top: 1.5rem; }
+.quote p { margin-top: 1rem; }
+
+/* Contact: sentence, portrait, two links (+ the planner) */
+.contact .say { grid-column: 1 / 7; }
+.contact .say p.big { font-size: 2rem; line-height: 1.2; max-width: 24ch; }
+.contact .say .links { display: flex; gap: 1.5rem; margin: 1.5rem 0 3rem; font-size: var(--step-lead); }
+.contact .portrait { grid-column: 8 / 13; aspect-ratio: 3 / 4; grid-row: 1 / 3; }
+.contact .planner { grid-column: 1 / 7; --pl-chip: #e2e8e2; --pl-chip-hover: #d3dcd4; --pl-on: var(--deep); --pl-on-ink: #fff; }
+.contact .planner button, .contact .planner-go { font-family: system-ui, sans-serif; }
+
+/* Footer: the name first, the places under it */
+.foot { background: var(--deep); color: #e6efe9; padding: 5rem var(--m) 2rem; }
+.foot .name { font-size: clamp(3.5rem, 2rem + 8vw, 10rem); line-height: 0.95; letter-spacing: -0.03em; }
+.foot .places { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin-top: 2rem; font-size: var(--step-lead); color: #b9d3c6; }
+.foot .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 3rem; font-size: var(--step-small); }
+.foot a { color: #fff; }
+
+@media (max-width: 52rem) {
+  .grid { display: block; }
+  .top { grid-template-columns: 1fr auto; }
+  .top nav { display: none; }
+  .rail { padding-top: 1.5rem; }
+  .rail .lead { grid-template-columns: 1fr 38%; align-items: start; margin-bottom: 2rem; }
+  .rail .p1 { width: 100%; order: 2; }
+  .rail .p2 { width: 72%; max-height: none; }
+  .rail .p3 { margin: 1.5rem calc(-1 * var(--m)) 0; width: auto; max-height: none; aspect-ratio: 16 / 10; }
+  .rail .p3 figcaption { padding-inline: var(--m); }
+  .rail h1 { font-size: clamp(1.9rem, 6vw, 2.75rem); }
+  .contact .say p.big { font-size: 1.5rem; }
+  .rail .p2 { height: auto; aspect-ratio: 3 / 4; }
+  .rail .title .btn { margin-top: 1rem; }
+  .about .tile, .diag .s, .stepping .st { margin-top: 2rem; }
+  .stepping .pic { min-height: 0; height: 60svh; margin-bottom: 2rem; }
+  .stepping .st { padding-left: 0; }
+  .contact .portrait { margin: 2rem 0; width: 70%; margin-left: auto; }
+}
+
+@media (max-width: 30rem) { .rail .lead { grid-template-columns: 1fr; } .rail .p1 { width: 38%; margin-left: auto; } }
+.stepping .pic img { object-position: 50% 18%; }

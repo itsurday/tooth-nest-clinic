@@ -1,0 +1,101 @@
+/* R2 · 2 — The place carries it (direction place-carries-it). Colours sampled from the real signboard and opening-day garlands.
+   Type: Switzer was dealt; Hanken Grotesk stands in (Fontshare is unreachable from this environment). */
+:root {
+  --bg: #f1f3f4; --ink: #131a2e; --muted: #3d4559;
+  --sign: #eef1f4; --marigold: #f0a321; --tooth: #2cb27f; --garland: #d9620f; --navy: #1f3586;
+  --accent: #1f3586; --accent-deep: #172a6c; --on-accent: #fff;
+  --text-face: "Hanken Grotesk", system-ui, sans-serif;
+  --step-small: 0.875rem; --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); --step-lead: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --step-head: clamp(2.25rem, 1.5rem + 3vw, 4.25rem); --step-hero: clamp(3.25rem, 8.6vw, 8.25rem);
+  --m: clamp(1rem, 3vw, 2rem); --radius: 12px; --focus: #f0a321;
+}
+h1, h2, h3 { font-weight: 300; letter-spacing: -0.035em; line-height: 0.98; }
+h2 { font-size: var(--step-head); }
+h3 { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: 0.8rem 1.5rem; border-radius: var(--radius); background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+.btn:hover { background: var(--accent-deep); }
+.btn.white { background: #fff; color: var(--ink); }
+.btn.white:hover { background: var(--sign); }
+
+/* Hero: a framed photograph panel with the swatch column as navigation */
+.hero { display: grid; grid-template-columns: 10fr 2fr; gap: 10px; height: calc(100svh - 2.25rem); min-height: 36rem; padding: 10px; background: var(--bg); }
+.view { position: relative; overflow: hidden; border-radius: var(--radius); color: #fff; isolation: isolate; }
+.view > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; z-index: -2; }
+.view::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(10 14 30 / 0.6); }
+.view .mark { position: absolute; left: 28px; top: 28px; display: flex; gap: 0.5rem; align-items: center; color: #fff; text-decoration: none; font-weight: 600; }
+.view .mark img { width: 2.2rem; }
+.view h1 { position: absolute; left: 0; right: 0; top: 16%; text-align: center; font-size: var(--step-hero); padding-inline: var(--m); }
+.view .sub { position: absolute; left: 28px; bottom: 36px; max-width: 30ch; font-size: var(--step-lead); line-height: 1.35; }
+.view .act { position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%); white-space: nowrap; }
+.view .act:active { transform: translateX(-50%) scale(0.97); }
+.swatches { display: grid; grid-template-rows: repeat(5, 1fr); border-radius: var(--radius); overflow: hidden; }
+.swatches a { background: var(--c); color: var(--t); padding: 20px; text-align: right; text-decoration: none; font-weight: 600; transition: padding 0.25s ease; }
+.swatches a:hover { padding-right: 28px; }
+@media (max-width: 56rem) {
+  .hero { display: block; height: auto; padding: 8px; }
+  .view { height: 64svh; }
+  .view h1 { top: 14%; font-size: 12vw; }
+  .view .sub { display: none; }
+  .swatches { grid-template-rows: none; margin-top: 8px; }
+  .swatches a { min-height: 52px; padding: 14px 16px; }
+}
+
+section { padding: clamp(6rem, 11vw, 10rem) var(--m); }
+.lede { max-width: 52ch; font-size: var(--step-lead); line-height: 1.4; margin-top: 1.5rem; }
+
+/* About: wide photo, colour tile, facts */
+.about { background: var(--sign); }
+.about .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; margin-top: 3rem; align-items: stretch; }
+.about .wide { grid-column: 1 / 9; width: 100%; height: 100%; min-height: 26rem; object-fit: cover; border-radius: var(--radius); }
+.about .tile { grid-column: 9 / 13; background: var(--marigold); color: var(--ink); border-radius: var(--radius); padding: 1.5rem; text-align: right; display: grid; align-content: space-between; gap: 2rem; }
+.about .tile dl { display: grid; gap: 1.25rem; }
+.about .tile dt { font-size: var(--step-head); font-weight: 300; letter-spacing: -0.04em; line-height: 1; }
+.about .tile dd { color: #2d2410; }
+@media (max-width: 56rem) { .about .wide, .about .tile { grid-column: 1 / -1; } .about .wide { min-height: 16rem; } }
+
+/* Treatments: rows with margin photographs */
+.treat { background: var(--marigold); color: var(--ink); }
+.rows { margin-top: 3rem; display: grid; }
+.row { display: grid; grid-template-columns: 9rem 1fr 1.2fr; gap: 1.5rem; align-items: center; padding-block: 1.1rem; }
+.row + .row { background-image: none; }
+.row img { width: 9rem; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.row h3 { font-size: var(--step-lead); }
+.row p { color: #2d2410; justify-self: end; text-align: right; max-width: 34ch; }
+.row:nth-child(odd) { background: rgb(255 255 255 / 0.18); border-radius: var(--radius); padding-inline: 1rem; }
+.row:nth-child(even) { padding-inline: 1rem; }
+@media (max-width: 56rem) { .row { grid-template-columns: 6.5rem 1fr; } .row img { width: 6.5rem; } .row p { grid-column: 2; justify-self: start; text-align: left; } .swatches a { text-align: left; } }
+
+/* How it works: photographs down a diagonal */
+.how { background: var(--tooth); color: #0f2a20; }
+.diag { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; margin-top: 3rem; }
+.step { grid-column: var(--c); display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: end; }
+.step img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.step h3 { margin-bottom: 0.5rem; }
+@media (max-width: 56rem) { .step { grid-column: 1 / -1; grid-template-columns: 1fr; } }
+
+/* Testimonial: portrait and offset quotation */
+.voice { background: var(--garland); color: #1b1206; }
+.voice .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+.voice img.portrait { grid-column: 2 / 6; grid-row: 1 / 4; width: 100%; height: 68svh; object-fit: cover; border-radius: var(--radius); }
+.voice h2 { grid-column: 7 / 13; grid-row: 1; align-self: end; }
+.voice blockquote { grid-column: 7 / 13; grid-row: 2; font-size: var(--step-lead); line-height: 1.35; max-width: 30ch; margin-top: 2rem; }
+.voice .who { grid-column: 7 / 13; grid-row: 3; margin-top: 1.25rem; }
+@media (max-width: 56rem) { .voice .grid { display: block; } .voice img.portrait { width: 72%; height: auto; aspect-ratio: 3 / 4; margin-bottom: 2.5rem; } }
+
+/* Contact: visit card on a photograph */
+.visit { position: relative; background: var(--navy); color: #fff; padding-block: clamp(5rem, 10vw, 8rem); isolation: isolate; }
+.visit > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.visit::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(15 25 70 / 0.55); }
+.card { max-width: 40rem; margin-left: auto; background: var(--sign); color: var(--ink); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 3rem); }
+.card address { font-style: normal; margin: 1rem 0 1.5rem; }
+.card { --pl-chip: #dde3ea; --pl-chip-hover: #cfd7e1; --pl-on: var(--navy); --pl-on-ink: #fff; }
+.visit h2.on-photo { color: #fff; max-width: 10ch; margin-bottom: 2rem; }
+
+/* Footer: columns above, wordmark below */
+.foot { background: var(--bg); padding: 4rem var(--m) 2rem; }
+.foot .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: 2rem; }
+.foot .cols a { text-decoration: none; }
+.foot .cols a:hover { text-decoration: underline; }
+.foot .cols li + li { margin-top: 0.35rem; }
+.foot .word { font-size: var(--step-hero); font-weight: 300; letter-spacing: -0.05em; line-height: 0.9; margin-top: 3rem; color: var(--navy); }
+.foot small { display: block; margin-top: 1rem; color: var(--muted); font-size: var(--step-small); }

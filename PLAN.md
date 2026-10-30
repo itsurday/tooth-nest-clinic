@@ -99,7 +99,7 @@ Every file was read before it was added. Use them while building.
 | `frontend-design-direction`, `design-system`, `make-interfaces-feel-better`, `accessibility`, `seo`, `browser-qa`, `healthcare-phi-compliance` | affaan-m/ECC (MIT) | Design direction, tokens, polish, WCAG 2.2 AA, SEO, browser QA, patient-data privacy. |
 | `emil-design-eng`, `animate`, `animation-performance`, `animation-vocabulary`, `find-animation-opportunities`, `improve-animations`, `remove-animations`, `review-animations`, `break-ui`, `mobile-native`, `prototype` | emilkowalski/skill (MIT) | UI polish and motion, worst-case data testing, native feel on phones, switchable variants. Skipped: Expo, Swift, Sonner, React library picker, Apple gestures. |
 | `impeccable` | pbakaus/impeccable (Apache-2.0) | Design critique/audit/polish/typeset/colour/layout. **Instructions + references only**: the launcher that downloads a binary and the every-edit hooks are not installed, so it runs in its documented "launcher unavailable" mode. |
-| `design-taste-frontend` | Leonxlnx/taste-skill (MIT) | Art direction library (247 studied sites), anti-"AI slop" house style. Its Node scripts are included but running them was blocked by the session's safety check — needs the owner's permission. Output goes to `.taste-skill/` (ignored). |
+| `design-taste-frontend` | Leonxlnx/taste-skill (MIT) | Art direction library (247 studied sites), anti-"AI slop" house style. Its Node scripts are allowed by `.claude/settings.json` (owner approved 2026-10-30); in cloud sessions run `inspect.mjs` with `CHROME_PATH` pointing to a wrapper that adds `--no-sandbox` (root). Output goes to `.taste-skill/` (ignored). |
 
 Not installed: rest of ECC, other ui-ux-pro-max skills, ArtCraft CLIs (downloaded to `/home/user/storytold/bin/` in session 1 only; running them needs the owner's permission).
 
@@ -441,7 +441,9 @@ The clinic must own every account (not a personal or developer account).
   2 "Local & Trusted" (Palamós) · 3 "Calm Sage" (Atelier) · 4 "Bright Family" (Herzel) · 5 "Book-First" (Marylebone structure, no superlatives) · 6 "Bold Smile" (Nova) · 7 "Best of" (pieces of 2–6). Template 1 = the current site.
 - [x] Stock photos from Unsplash only for previews (`templates/img/`, credits in `CREDITS.txt`); real clinic photos must replace them in whichever template is chosen. Preview fonts self-hosted in `templates/fonts/`.
 - [x] QA: no overflow/console errors, axe WCAG 2.2 AA clean at 1440 and 390 for all templates
-- [ ] Owner picks a template → restyle the real site with it (then delete `templates/` or keep as archive)
+- [x] **Design Round 2** (`templates/r2/1–7.html`, listed under "Design Round 2" on `/templates/`): rebuilt with Taste Skill + Emil + Impeccable. Each page follows a dealt Taste Skill direction (one-motif, place-carries-it, split-stage, uneven-photographs, page-is-the-object, hero-object, colour-chapters), an idea taken from the clinic's own inventory (signboard, green tooth, marigolds, two daily sessions, Manjira Nagar Colony), and one live thing: the visit planner (`templates/r2/r2.js`) that shows the real hours for a chosen day/session and writes the WhatsApp message. Gate: `lint.mjs` 0 FAIL; `inspect.mjs` 0 FAIL at 1440/768/390 for all seven; axe WCAG 2.2 AA clean.
+- Round 2 deviations to remember: Fontshare faces (Switzer, Gambarino, General Sans) swapped for Google stand-ins (Hanken Grotesk, Fraunces, Plus Jakarta Sans) because Fontshare is unreachable; open-collection image search (Openverse, Wikimedia, AIC, Met) and picsum were unreachable, so pictures are the clinic's own + Unsplash stock; no video (no footage source reachable); the "note from Dr. Ramya" in R2-3 is sample text (`TODO-CLINIC`).
+- [ ] Owner picks a template (round 1 or 2, or a mix) → restyle the real site with it (then delete `templates/` or keep as archive)
 
 ### Phase 3 — Lead capture and alerts
 - [ ] Call-back form → `/api/lead` → Sheet row
@@ -543,3 +545,10 @@ Until answered, use placeholders written as `TODO-CLINIC: …`.
 - **2026-10-30** — Added skills from emilkowal.ski (11 of 16), impeccable.style
   (instructions only, no binary/hooks) and tasteskill.dev after reading every
   file; restored the skills table (section 3.1). Added `.gitignore`.
+- **2026-10-30 (Design Round 2)** — Owner allowed Taste Skill's scripts
+  (`.claude/settings.json`) and declined Impeccable's full version. Moved the
+  first set under "Design Round 1" on `/templates/` and built "Design Round 2"
+  (seven pages in `templates/r2/`) following Taste Skill's run: inventory, a
+  dealt direction per page, an idea from the clinic itself, the visit planner as
+  the live thing, lint + inspector to 0 FAIL at three widths, screenshot review.
+  Waiting for the owner to choose.

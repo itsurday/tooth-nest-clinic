@@ -1,0 +1,81 @@
+/* R2 · 3 — The split stage (direction split-stage). The rooms you pass through stay on the left while you read. Type: Work Sans. */
+:root {
+  --bg: #f1f3f1; --ink: #18221e; --muted: #47534d; --deep: #10302a; --paper: #f1f3f1; --slip: #e3ebe4;
+  --accent: #1a7a56; --accent-deep: #145e43; --on-accent: #fff;
+  --text-face: "Work Sans", system-ui, sans-serif;
+  --step-small: 0.875rem; --step-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem); --step-lead: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-head: clamp(2rem, 1.6rem + 1.4vw, 2.75rem); --step-hero: clamp(5.5rem, 12vw, 12.5rem);
+  --m: clamp(1rem, 3vw, 2rem); --radius: 0; --focus: #2cb27f;
+}
+h1, h2, h3 { font-weight: 400; letter-spacing: -0.03em; line-height: 1.02; }
+h2 { font-size: var(--step-head); margin-bottom: 1.5rem; }
+h3 { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; }
+
+.stage { display: grid; grid-template-columns: 47% 53%; background: var(--deep); }
+.still { position: sticky; top: 0; height: 100svh; padding: 20px 0 20px 20px; }
+.still .frame { position: relative; height: 100%; overflow: hidden; }
+.still img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.9s ease; }
+.still img.on { opacity: 1; }
+.still figcaption { position: absolute; left: 1rem; bottom: 1rem; z-index: 2; background: var(--deep); color: var(--paper); padding: 0.35rem 0.6rem; font-size: var(--step-small); }
+
+.read { color: var(--paper); }
+.read nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem 1.5rem; padding: 2rem var(--m) 0; }
+.read nav a { text-decoration: none; font-weight: 500; }
+.read nav a:hover { color: #9fe3c4; }
+.read nav a.act { color: #9fe3c4; }
+.opening { position: relative; min-height: calc(100svh - 4.5rem); display: grid; align-content: center; padding: 0 var(--m); }
+.opening p { max-width: 26ch; font-size: var(--step-lead); line-height: 1.35; margin-inline: auto; }
+.opening h1 { position: absolute; right: var(--m); bottom: 2.5rem; font-size: var(--step-hero); font-weight: 300; letter-spacing: -0.045em; line-height: 0.85; white-space: nowrap; color: var(--paper); z-index: 3; }
+
+.read section { padding: clamp(6rem, 10vw, 9rem) var(--m); }
+.read section > * { max-width: 46ch; }
+.read section.pale { background: var(--paper); color: var(--ink); }
+
+/* Founder's letter */
+.letter p + p { margin-top: 1rem; }
+.letter .sign { margin-top: 1.5rem; font-weight: 500; }
+
+/* Treatments as a menu: name left, visits right */
+.menu-list { display: grid; gap: 0.15rem; }
+.menu-list li { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.7rem 0; }
+.menu-list li:nth-child(odd) { background: rgb(0 0 0 / 0.035); padding-inline: 0.75rem; margin-inline: -0.75rem; }
+.menu-list span { color: var(--muted); text-align: right; }
+
+/* Itinerary on a slip */
+.slip { background: var(--slip); color: var(--ink); padding: 2rem; position: relative; }
+.slip::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 10px; background: radial-gradient(circle at 10px 0, var(--slip) 6px, transparent 6.5px) 0 0 / 20px 10px repeat-x; } /* taste-skill-ignore: scalloped paper edge, not a gradient fill */
+.slip ol li { padding: 0.9rem 0; display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; }
+.slip ol li b { font-weight: 600; }
+
+/* One long letter (review) */
+.long blockquote { font-size: var(--step-lead); line-height: 1.45; }
+.long blockquote + blockquote { margin-top: 1.5rem; }
+.long .who { margin-top: 1rem; color: #cfe0d8; }
+
+/* Address in display rows */
+.rows-big .addr p { font-size: var(--step-head); letter-spacing: -0.03em; line-height: 1.1; }
+.addr { margin-bottom: 2.5rem; }
+.pale .planner { --pl-chip: #dfe6e1; --pl-chip-hover: #cfd9d2; --pl-on: var(--deep); --pl-on-ink: #fff; }
+
+/* Footer: photograph half, menu half */
+.foot { display: grid; grid-template-columns: 1fr 1fr; background: var(--deep); color: var(--paper); }
+.foot img { width: 100%; height: 100%; min-height: 22rem; object-fit: cover; }
+.foot .menu-half { padding: 3rem var(--m); display: grid; align-content: space-between; gap: 2rem; }
+.foot .menu-half ul li + li { margin-top: 0.4rem; }
+.foot a { text-decoration: none; }
+.foot a:hover { color: #9fe3c4; }
+.foot .name { font-size: var(--step-head); font-weight: 300; letter-spacing: -0.04em; }
+
+@media (max-width: 52rem) {
+  .stage { display: block; }
+  .still { position: relative; height: 58svh; padding: 12px; }
+  .opening { min-height: auto; padding-top: 1rem; padding-bottom: 3rem; display: flex; flex-direction: column; }
+  .opening h1 { order: -1; }
+  .still { height: 50svh; }
+  .still figcaption { display: none; }
+  .opening h1 { position: relative; right: auto; bottom: auto; margin-top: -10vw; font-size: 21vw; }
+  .opening p { margin: 1.5rem 0 0; font-size: 1.0625rem; }
+  .read nav { position: absolute; top: 4.5rem; right: 1.25rem; z-index: 4; padding: 0; }
+  .read nav a:not(.act) { display: none; }
+  .foot { grid-template-columns: 1fr; }
+}

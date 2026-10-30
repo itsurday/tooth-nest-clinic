@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Round 2 · Template 3 · The split stage · Tooth Nest preview</title>
+  <meta name="description" content="Design preview: Tooth Nest Dental Clinic, Alwal.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/templates/r2/base.css">
+  <link rel="stylesheet" href="/templates/r2/t3.css">
+  <script type="module" src="/templates/r2/r2.js"></script>
+  <script type="module">
+    // The still half follows the reading half: each section shows its own room.
+    const imgs = [...document.querySelectorAll('.still img')];
+    const cap = document.querySelector('.still figcaption');
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const i = Number(e.target.dataset.still);
+      imgs.forEach((im, j) => im.classList.toggle('on', j === i));
+      cap.textContent = imgs[i].dataset.cap;
+    }), { rootMargin: '-45% 0px -45% 0px' });
+    document.querySelectorAll('[data-still]').forEach(s => io.observe(s));
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="preview-bar" role="note">Round 2 · Template 3 · "The split stage" · design preview with stock photos · <a href="/templates/">All templates</a></div>
+
+  <div class="stage">
+    <figure class="still" aria-label="Photographs of the clinic">
+      <div class="frame">
+        <img class="on" src="/assets/images/clinic/storefront-sign-1600.webp" data-cap="The door: Manjira Nagar Colony, Alwal" alt="The real Tooth Nest signboard above the clinic door" fetchpriority="high">
+        <img src="/templates/img/dentist-coat-800.webp" data-cap="Your dentist (stock photo)" alt="A woman dentist in a white coat (stock photo standing in for Dr. K. Ramya)" loading="lazy">
+        <img src="/templates/img/room-bright-1600.webp" data-cap="A treatment room (stock photo)" alt="A bright dental treatment room (stock photo)" loading="lazy">
+        <img src="/assets/images/clinic/reception-1200.webp" data-cap="The reception, Tooth Nest" alt="The real Tooth Nest reception with a wooden desk and chairs" loading="lazy">
+        <img src="/assets/images/clinic/opening-day-1031.webp" data-cap="Opening day, Tooth Nest" alt="The clinic entrance with marigold garlands on opening day" loading="lazy">
+      </div>
+      <figcaption>The door: Manjira Nagar Colony, Alwal</figcaption>
+    </figure>
+
+    <div class="read">
+      <nav aria-label="Main"><a href="#letter">Dr. Ramya</a><a href="#menu">Treatments</a><a href="#slip">Your visit</a><a href="#find">Find us</a><a class="act" href="https://wa.me/919704737577?text=Hello%20Tooth%20Nest%2C%20I%20would%20like%20to%20book%20an%20appointment.">Book</a></nav>
+      <header class="opening" data-still="0">
+        <p data-r>Gentle family and cosmetic dentistry in Alwal, Secunderabad, with Dr. K. Ramya. Open seven days.</p>
+        <h1 data-r>tooth nest</h1>
+      </header>
+
+      <main id="main">
+        <section class="letter pale" id="letter" data-still="1" aria-labelledby="l-h">
+          <h2 id="l-h" data-r>A note from Dr. Ramya</h2>
+          <!-- TODO-CLINIC: sample text — to be written with Dr. K. Ramya -->
+          <p data-r>Many people come to us after putting off the dentist for years, often because a visit once hurt or frightened them. I understand that.</p>
+          <p data-r>At Tooth Nest I see every patient myself. I explain what I find, show you on the screen, and give you the options and their cost in writing. Nothing happens until you are ready.</p>
+          <p class="sign" data-r>Dr. K. Ramya, Cosmetic Dental Surgeon</p>
+        </section>
+
+        <section class="pale" id="menu" data-still="2" aria-labelledby="m-h">
+          <h2 id="m-h" data-r>Treatments</h2>
+          <ul class="menu-list" data-r>
+            <li>Check-up &amp; cleaning <span>30–45 min</span></li>
+            <li>Tooth-coloured fillings <span>1 visit</span></li>
+            <li>Root canal treatment <span>1–3 visits</span></li>
+            <li>Crowns &amp; bridges <span>2 visits</span></li>
+            <li>Dental implants <span>3–6 months</span></li>
+            <li>Dentures <span>4–5 visits</span></li>
+            <li>Whitening &amp; veneers <span>1–3 visits</span></li>
+            <li>Braces &amp; aligners <span>6–24 months</span></li>
+            <li>Gum treatment <span>1–4 visits</span></li>
+            <li>Children's dentistry <span>from age 1</span></li>
+            <li>Extractions &amp; wisdom teeth <span>1 visit</span></li>
+            <li>Emergencies <span>same day</span></li>
+          </ul>
+        </section>
+
+        <section id="slip" data-still="2" aria-labelledby="s-h">
+          <h2 id="s-h" data-r>Your first visit</h2>
+          <div class="slip" data-r>
+            <ol>
+              <li><b>Before</b>Bring your medicine list and any old X-rays. Leave footwear at the door.</li>
+              <li><b>10 minutes</b>A short health form and a namaskar at reception.</li>
+              <li><b>30 minutes</b>Dr. Ramya checks your teeth and gums, with an X-ray only if needed.</li>
+              <li><b>After</b>A written plan with options and costs. You decide, at your pace.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="long" id="reviews" data-still="3" aria-labelledby="r-h">
+          <h2 id="r-h" data-r>4.9 from 19 reviews</h2>
+          <blockquote data-r>“I recently had a crown done at Tooth Nest Dental Clinic, and I’m beyond impressed with the entire experience. From start to finish, everything was smooth, professional, and surprisingly comfortable.Dr .Ramya did an amazing job.”</blockquote>
+          <p class="who" data-r>Soumya K., Google review</p>
+          <blockquote data-r>“I visited the clinic for a dental appointment, and I had a very positive experience. Dr.Ramya Mam,She was gentle, professional, and made sure I was comfortable throughout the process.”</blockquote>
+          <p class="who" data-r>Chaithyaa M., Google review</p>
+        </section>
+
+        <section class="pale rows-big" id="find" data-still="4" aria-labelledby="f-h">
+          <h2 id="f-h" class="vh">Find us and plan your visit</h2>
+          <div class="addr" data-r><p>Manjira Nagar Colony</p><p>Alwal, Secunderabad</p><p>Telangana 500010</p></div>
+          <div class="planner" data-planner data-r>
+            <div class="planner-row planner-days" role="group" aria-label="Day"></div>
+            <div class="planner-row planner-sessions" role="group" aria-label="Session"></div>
+            <p class="planner-out" aria-live="polite">Monday to Saturday 10 AM–2 PM and 5–8:30 PM. Sunday 10 AM–1 PM.</p>
+            <a class="planner-go press" href="https://wa.me/919704737577?text=Hello%20Tooth%20Nest%2C%20I%20would%20like%20to%20book%20an%20appointment.">Book on WhatsApp</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <img src="/templates/img/family-800.webp" alt="A father carrying his two young children (stock photo)" loading="lazy">
+    <div class="menu-half">
+      <ul><li><a href="/services.html">Treatments</a></li><li><a href="/about.html">About Dr. Ramya</a></li><li><a href="/patients.html#emergency">Dental emergency</a></li><li><a href="/patients.html#fees">Fees &amp; payment</a></li><li><a href="tel:+919704737577">+91 97047 37577</a></li></ul>
+      <div><p class="name">tooth nest</p><p>© 2026 · Stock photos: Unsplash</p></div>
+    </div>
+  </footer>
+</body>
+</html>

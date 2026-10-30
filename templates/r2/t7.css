@@ -1,0 +1,108 @@
+/* R2 · 7 — Best of, in colour chapters (direction colour-chapters). Chapter colours come from the signboard, the logo
+   and the opening-day marigolds; pieces borrowed from templates 1–6. Type: Bricolage Grotesque. */
+:root {
+  --bg: #f2f2ee; --ink: #12201b; --muted: #3f4b46; --paper: #f2f2ee;
+  --green: #2cb27f; --green-ink: #06261b; --navy: #1f3586; --marigold: #f0a321; --deep: #10302a;
+  --accent: #10302a; --accent-deep: #0a2019; --on-accent: #fff;
+  --text-face: "Bricolage Grotesque", system-ui, sans-serif;
+  --step-small: 0.875rem; --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem); --step-lead: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --step-head: clamp(2.5rem, 1.4rem + 4.5vw, 5.5rem); --step-hero: clamp(3.4rem, 9.5vw, 9.4rem);
+  --m: clamp(1rem, 3vw, 2rem); --radius: 0; --focus: #f0a321;
+}
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.04em; line-height: 0.92; }
+h2 { font-size: var(--step-head); }
+h3 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; }
+.btn:hover { background: var(--accent-deep); }
+.chapter { min-height: 90svh; padding: clamp(5rem, 9vw, 8rem) var(--m); }
+
+/* Hero: headline across two fields */
+.hero { position: relative; height: calc(100svh - 2.25rem + 30svh); min-height: 46rem; background: var(--paper); isolation: isolate; }
+.hero::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; top: calc((100svh - 2.25rem) / 2); background: var(--green); z-index: -1; }
+.hero .bar { position: absolute; inset: 0 0 auto; display: flex; align-items: center; gap: 1.5rem; padding: 1.75rem var(--m); }
+.hero .bar .wm { margin-right: auto; display: flex; gap: 0.5rem; align-items: center; text-decoration: none; font-weight: 800; font-size: var(--step-lead); letter-spacing: -0.02em; }
+.hero .bar .wm img { width: 2.1rem; }
+.hero .bar nav { display: flex; gap: 1.5rem; }
+.hero .bar nav a { text-decoration: none; font-weight: 600; }
+.hero .bar nav a:hover { color: var(--green-ink); text-decoration: underline; }
+.seam { position: absolute; left: 0; right: 0; top: calc((100svh - 2.25rem) / 2); transform: translateY(-50%); }
+.seam h1 { position: relative; text-align: center; font-size: var(--step-hero); line-height: 0.86; text-transform: uppercase; letter-spacing: -0.03em; }
+.seam h1 span { display: block; }
+.seam .top { color: #1a7a56; clip-path: inset(0 0 50% 0); }
+.seam .bottom { position: absolute; inset: 0; color: var(--green-ink); clip-path: inset(50% 0 0 0); }
+.hero .sub { position: absolute; left: 50%; transform: translateX(-50%); top: calc(100svh - 2.25rem - 9rem); width: min(90%, 40ch); text-align: center; font-size: var(--step-lead); line-height: 1.35; color: var(--green-ink); }
+.hero .sub .btn { margin-top: 1.25rem; }
+@media (max-width: 52rem) {
+  .hero { height: auto; min-height: 0; padding: 11rem 0 4rem; }
+  .hero::before { top: calc(11rem + 12.9vw); }
+  .seam { position: static; transform: none; }
+  .seam h1 { font-size: 15vw; }
+  .hero .bar nav { display: none; }
+  .hero .sub { position: static; transform: none; margin: 3rem auto 0; font-size: 1.0625rem; }
+}
+
+/* About on green: two columns, highlighted words, prints pinned unevenly */
+.about { background: var(--green); color: var(--green-ink); padding-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; min-height: 0; }
+.about h2 { grid-column: 1 / -1; }
+.about p { line-height: 1.55; max-width: 44ch; }
+.about p:first-child { font-size: var(--step-lead); line-height: 1.4; max-width: 34ch; }
+.about mark { background: var(--paper); color: var(--green-ink); padding: 0 0.2em; }
+.prints { position: relative; min-height: 30rem; }
+.prints img { position: absolute; object-fit: cover; }
+.prints .a { left: 0; top: 0; width: 62%; aspect-ratio: 16 / 11; }
+.prints .b { right: 0; top: 34%; width: 44%; aspect-ratio: 3 / 4; }
+
+/* Treatments on stacking sheets */
+.sheets { padding: 0 var(--m) clamp(4rem, 8vw, 6rem); background: var(--paper); }
+.sheets > h2 { padding-top: clamp(5rem, 9vw, 8rem); margin-bottom: 2rem; }
+.sheet { position: sticky; top: 1.5rem; min-height: 62svh; padding: clamp(2rem, 4vw, 3rem); background: var(--c); color: var(--t); display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; align-items: end; margin-bottom: 1.5rem; }
+.sheet b { font-size: var(--step-head); font-weight: 800; letter-spacing: -0.05em; line-height: 0.95; }
+.sheet ul li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.35rem; }
+.sheet ul li::before { content: ""; flex: none; width: 0.9rem; height: 0.9rem; margin-top: 0.35rem; background: currentColor; clip-path: url(#tooth); order: -1; }
+.sheet ul li span:first-of-type { margin-right: auto; }
+.sheet img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* Visit: tiles that grow (from template 6) */
+.visit { background: var(--paper); padding-top: 2rem; min-height: 0; }
+.visit h2 { margin-bottom: 2rem; }
+.tiles { display: flex; gap: 0.75rem; height: 64svh; min-height: 24rem; }
+.tile { position: relative; flex: 1; overflow: hidden; color: #fff; text-decoration: none; transition: flex-grow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.tile:hover, .tile:focus-visible { flex-grow: 2.4; }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tile .txt { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.25rem; background: rgb(8 18 14 / 0.62); }
+
+/* Reviews on navy: name block, quote block */
+.voices { background: var(--navy); color: #fff; display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-content: center; }
+.voices .names p { font-size: var(--step-lead); }
+.voices blockquote { font-size: var(--step-lead); line-height: 1.4; max-width: 34ch; }
+.voices blockquote + p { margin: 1rem 0 2.5rem; color: #c8d1f0; }
+.voices a { color: #fff; }
+
+/* Find us on marigold: photo strip and the slip (from template 5) */
+.find { background: var(--marigold); color: var(--ink); min-height: 0; }
+.strip { display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: 0.75rem; margin: 2.5rem 0 0.75rem; }
+.strip img { width: 100%; height: 18rem; object-fit: cover; }
+.cells { display: grid; grid-template-columns: 1fr 1fr 1.6fr; background: var(--paper); }
+.cells > div { padding: 1.75rem; }
+.cells > div + div { border-left: 6px dotted var(--marigold); }
+.cells .planner { --pl-chip: #e5e5df; --pl-chip-hover: #d8d8d0; --pl-on: var(--deep); --pl-on-ink: #fff; }
+.chip[data-open="true"] { color: var(--green-ink); }
+
+/* Footer of tiles on deep green */
+.foot { background: var(--deep); color: var(--paper); padding: 2rem var(--m); }
+.foot .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.foot .grid a, .foot .grid div { background: #183e35; padding: 1.25rem; min-height: 8rem; text-decoration: none; display: flex; flex-direction: column; justify-content: space-between; transition: background-color 0.2s ease; }
+.foot .grid a:hover { background: #22514a; }
+.foot .grid .big { grid-column: span 2; background: var(--green); color: var(--green-ink); }
+.foot .grid .big p { font-size: var(--step-head); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; }
+
+@media (max-width: 52rem) {
+  .about, .voices, .sheet, .strip, .cells { grid-template-columns: 1fr; }
+  .prints { min-height: 22rem; }
+  .sheet { position: relative; top: 0; }
+  .tiles { flex-direction: column; height: auto; }
+  .tile { min-height: 14rem; }
+  .strip img { height: 12rem; }
+  .cells > div + div { border-left: 0; border-top: 6px dotted var(--marigold); }
+  .foot .grid { grid-template-columns: 1fr 1fr; }
+}
